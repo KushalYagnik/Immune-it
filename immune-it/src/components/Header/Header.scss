@@ -1,0 +1,21 @@
+*{
+    border: 1px solid red;
+}
+.header{
+    // display: flex;
+    &__logo{
+        // width: 2em;
+        // height: 2em;
+    }
+    &__menu{
+        display: flex;
+        &-item{
+            // width: 10em;
+            list-style: none;
+        }
+        &-link{
+            text-decoration: none;
+            color: black;
+        }
+    }
+}
