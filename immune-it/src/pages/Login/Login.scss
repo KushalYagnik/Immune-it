@@ -1,0 +1,15 @@
+.login{
+    border: 2px solid black;
+    border-radius: 1em;
+    margin: 27vh 30vw;
+    width: 40em;
+    height: 20em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &__logo{
+        object-fit: cover;
+        width: 2em;
+        border-radius: 1em;
+    }
+}

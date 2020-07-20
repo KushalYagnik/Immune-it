@@ -1,8 +1,11 @@
-*{
-    border: 1px solid red;
-}
+@import '../mixins';
+@import '../variables';
+
 .header{
     // display: flex;
+    border-bottom: 2px solid tomato;
+    background-color: skyblue;
+    color: white;
     &__logo{
         // width: 2em;
         // height: 2em;
@@ -15,7 +18,9 @@
         }
         &-link{
             text-decoration: none;
-            color: black;
+            color: white;
         }
     }
 }
+
+@include tablet;

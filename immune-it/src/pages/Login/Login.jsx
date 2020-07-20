@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './Login.scss';
+import Logo from '../../components/Logo/Logo';
+import {Link} from 'react-router-dom';
 
 export class Login extends Component {
     render() {
@@ -7,7 +9,8 @@ export class Login extends Component {
             <div className="login">
                 <form className="login__wrapper">
                     <div className="login__greeting">
-                        <img className="login__logo" src="../../assets/Immune-it_cropped.png" alt="login__logo"/>
+                        <Logo />
+                        {/* <img className="login__logo" src="../../assets/Immune-it_cropped.png" alt="login__logo"/> */}
                         <h2 className="login__title">Login</h2>
                         <p className="login__text">Please login to access the app</p>
                     </div>
@@ -17,7 +20,9 @@ export class Login extends Component {
                     </div>
                     <div className="login__CTAs">
                         <button className="login__login">Login</button>
-                        <button className="login__signup">Sign Up</button>
+                        <Link to="/signup">
+                            <button className="login__signup">Sign Up</button>
+                        </Link>
                     </div>
                 </form>
                 <div className="login__lang">
