@@ -8,6 +8,8 @@ import Records from '../../components/Records/Records';
 import About from '../../components/About/About';
 import Login from '../../pages/Login/Login';
 import Signup from '../../components/Signup/Signup';
+import AddRecord from '../../components/AddRecord/AddRecord';
+import EditRecord from '../../components/EditRecord/EditRecord';
 
 export class Home extends Component {
     render() {
@@ -16,6 +18,8 @@ export class Home extends Component {
                 <BrowserRouter>
                     <Header />
                     <Switch>
+                        <Route path='/edit/:id' component={EditRecord} />
+                        <Route path='/create' component={AddRecord} />
                         <Route path='/records' component={Records}/>
                         <Route path='/about' component={About}/>
                         <Route path='/knowledge' component={Knowledge}/>

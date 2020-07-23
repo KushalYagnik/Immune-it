@@ -1,66 +1,56 @@
-// import React, { Component } from 'react';
-// import './Records.scss';
-// import AddRecord from '../AddRecord/AddRecord';
+showModal = () => {
+    this.setState({ show: true });
+};
 
-// export class Records extends Component {
-//     constructor() {
-//         super();
-//         this.state = { show: false }
-//     }
+hideModal = () => {
+    this.setState({ show: false });
+};
 
-//     showModal = () => {
-//         this.setState({ show: true });
-//     };
+<Modal show={this.state.show} handleClose={this.hideModal}>
+    <AddRecord />
+</Modal>
+<button type="button" onClick={this.showModal}>Open</button>
 
-//     hideModal = () => {
-//         this.setState({ show: false });
-//     };
-
-//     render() {
-//         return (
-//             <div className="records">
-//                 <h1 className="records__title">Manage your immunization records</h1>
-//                 <Modal show={this.state.show} handleClose={this.hideModal}>
-//                     <AddRecord/>
-//                 </Modal>
-//                 <ul className="records__list">
-//                     <li className="records__item">
-//                         <a className="records__link" href="#">Sample Record</a>
-//                     </li>
-//                 </ul>
-//                 <button type="button" onClick={this.showModal}>Open</button>
-//             </div>
-//         )
-//     }
-// }
-
-// const Modal = ({ handleClose, show, children }) => {
-//     const showHideClassName = show ? 'modal display-block' : 'modal display-none';
+const Modal = ({ handleClose, show, children }) => {
+    const showHideClassName = show ? 'modal display-block' : 'modal display-none';
   
-//     return (
-//       <div className={showHideClassName}>
-//         <section className='modal-main'>
-//           {children}
-//           <button
-//             onClick={handleClose}
-//           >
-//             Close
-//           </button>
-//         </section>
-//       </div>
-//     );
-//   };
+    return (
+      <div className={showHideClassName}>
+        <section className='modal-main'>
+          {children}
+          <button
+            onClick={handleClose}
+          >
+            Close
+          </button>
+        </section>
+      </div>
+    );
+  };
 
 
-
-// export default Records
-
-///////////////////////////////////////////////////
+//   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+const Modal = ({ handleClose, show, children }) => {
+    const showHideClassName = show ? 'modal display-block' : 'modal display-none';
+
+    return (
+        <div className={showHideClassName}>
+            <section className='modal-main'>
+                {children}
+                <button
+                    onClick={handleClose}
+                >
+                    Close
+          </button>
+            </section>
+        </div>
+    );
+};
 
 const Todo = props => (
     < tr >
@@ -73,7 +63,7 @@ const Todo = props => (
     </tr >
 )
 
-export default class Records extends Component {
+export default class TodosList extends Component {
 
     constructor(props) {
         super(props);
@@ -89,6 +79,14 @@ export default class Records extends Component {
                 console.log(error);
             })
     }
+
+    showModal = () => {
+        this.setState({ show: true });
+    };
+    
+    hideModal = () => {
+        this.setState({ show: false });
+    };
 
     todoList() {
         return this.state.todos.map(function (currentTodo, i) {

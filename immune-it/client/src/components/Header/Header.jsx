@@ -15,24 +15,19 @@ export default function Header() {
             {/* <Nav/> */}
             <ul className="header__menu">
                 <li className="header__menu-item">
-                    <Link to="/">
-                       <a href="#" className="header__menu-link">Home</a>
-                    </Link>
+                    <Link to="/" className="header__menu-link">Home</Link>
                 </li>
                 <li className="header__menu-item">
-                    <Link to="/records">
-                        <a href="#" className="header__menu-link">My Records</a>
-                    </Link>
+                    <Link to="/records" className="header__menu-link">My Records</Link>
                 </li>
                 <li className="header__menu-item">
-                    <Link to="/about">
-                        <a href="#" className="header__menu-link">About</a>
-                    </Link>
+                    <Link to="/create" className="header__menu-link">Create Record</Link>
                 </li>
                 <li className="header__menu-item">
-                    <Link to="/knowledge">
-                        <a href="#" className="header__menu-link">Knowledge Centre</a>
-                    </Link>
+                    <Link to="/about" className="header__menu-link">About</Link>
+                </li>
+                <li className="header__menu-item">
+                    <Link to="/knowledge" className="header__menu-link">Knowledge Centre</Link>
                 </li>
             </ul>
             <div className="header__auth">
