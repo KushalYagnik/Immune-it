@@ -17,8 +17,9 @@ let Records = new Schema({
     user_recordfor: {
         type: String
     },
-    user_immunization: {
-        type: Array
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     }
 });
 
