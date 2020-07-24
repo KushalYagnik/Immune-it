@@ -1,5 +1,16 @@
 img{
-    width: 200px;
+    width: 250px;
     // height: 120px;
-    border-radius: 15px;    
+    // border-radius: 10%;
+}
+.logo-wrapper{
+    padding-right: 100px;
+    // width: 250px;
+    // border-top-right-radius: 2em;
+    // border-bottom-right-radius: 10px;
+    // background-color: rgb(255, 72, 62);
+    background: linear-gradient(to top, rgb(255, 72, 62), rgb(255, 104, 85), rgb(255, 134, 107));
+    // box-shadow: black;
+    // opacity: 1;
+    border: 1px solid red;
 }

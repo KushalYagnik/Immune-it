@@ -4,8 +4,8 @@
     @media only screen and (min-width: $tablet-breakpoint){
         .header{
             display: flex;
-            justify-content: space-evenly;
-            align-items: center;
+            // justify-content: space-between;
+            align-items: baseline;
             &__menu{
                 display: flex;
                 justify-content: space-evenly;
