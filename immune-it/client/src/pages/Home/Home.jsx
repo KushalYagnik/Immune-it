@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
 import Main from '../../components/Main/Main';
-import Footer from '../../components/Footer/Footer';
-import {BrowserRouter, Route, Switch, Link} from 'react-router-dom';
+// import Footer from '../../components/Footer/Footer';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Knowledge from '../../components/Knowledge/Knowledge';
 import Records from '../../components/Records/Records';
 import About from '../../components/About/About';

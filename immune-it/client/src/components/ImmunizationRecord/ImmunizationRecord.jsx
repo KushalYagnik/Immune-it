@@ -75,7 +75,6 @@ export default class ImmunizationRecord extends Component {
             });
 
         this.props.history.push("/");
-        // this.props.history.goBack()
 
     }
 

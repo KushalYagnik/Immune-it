@@ -26,8 +26,8 @@ export class Login extends Component {
                     </div>
                 </form>
                 <div className="login__lang">
-                    <a href="#" className="login__eng">English</a>
-                    <a href="#" className="login__fra">Français</a>
+                    <button className="login__eng">English</button>
+                    <button className="login__fra">Français</button>
                 </div>
             </div>
         )
