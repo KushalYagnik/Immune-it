@@ -1,11 +1,11 @@
 import React from 'react';
 import './Logo.scss';
-import logo from '../../assets/Immune-It_cropped.png';
+import logo from '../../assets/Immune-It2_revised.png';
 
 export default function Logo() {
     return (
         <div className="logo-wrapper">
-            <img src={logo} alt="Logo"/>
+            <img id="logo" src={logo} alt="Logo"/>
         </div>
     )
 }

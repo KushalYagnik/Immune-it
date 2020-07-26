@@ -56,13 +56,14 @@ router.put('/records/:id', auth, function(req, res) {
 router.post('/records', auth, async (req, res) => {
     try
     {
-        req.body.user = auth.user._id;
+        req.body.user = req.user._id;
         const record = new RecordsInstance(req.body);
         const result = await record.save();
         res.status(200).json(result);
     }
     catch(err) 
     {
+        console.error(err)
         res.status(400).send('adding new record failed');
     }
 });

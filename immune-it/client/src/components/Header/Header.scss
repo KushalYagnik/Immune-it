@@ -2,15 +2,11 @@
 @import '../variables';
 
 .header{
+    // height: 6.5em;
     // display: flex;
-    border-bottom: 2px solid tomato;
-    background-color: skyblue;
+    // border-bottom: 2px solid tomato;
+    background-color: rgb(18, 176, 238);
     color: white;
-    font-size: large;
-    &__logo{
-        // width: 2em;
-        // height: 2em;
-    }
     &__menu{
         display: flex;
         &-item{

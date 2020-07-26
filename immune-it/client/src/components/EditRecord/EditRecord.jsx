@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Header from '../Header/Header';
 
 export default class EditRecord extends Component {
 
@@ -21,17 +22,16 @@ export default class EditRecord extends Component {
             user_birthdate: "",
             user_gender: "",
             user_recordfor: "",
-            // user_shots: [
-            //     {
-            //         "measles": false,
-            //         "tetanus": true,
-            //     }
-            // ]
+            token: localStorage.getItem("token")
         }
     }
 
     componentDidMount() {
-        axios.get('http://localhost:8080/records/' + this.props.match.params.id)
+        axios.get('http://localhost:8080/records/' + this.props.match.params.id,{
+            headers: {
+                Authorization: 'Bearer ' + this.state.token //the token is a variable which holds the token
+            }
+        })
             .then(response => {
                 this.setState({
                     user_firstname: response.data.user_firstname,
@@ -54,7 +54,11 @@ export default class EditRecord extends Component {
     updateRecordfor(e) { this.setState({ user_recordfor: e.target.value }) };
 
     onDelete() {
-        axios.delete("http://localhost:8080/records/delete/" + this.props.match.params.id)
+        axios.delete("http://localhost:8080/records/" + this.props.match.params.id, {
+            headers: {
+                Authorization: 'Bearer ' + this.state.token //the token is a variable which holds the token
+            }
+        })
             .then((res) => {
                 console.log(res.data);
                 window.alert('Record deleted!');
@@ -74,7 +78,11 @@ export default class EditRecord extends Component {
             user_recordfor: this.state.user_recordfor,
         };
         console.log(obj);
-        axios.post('http://localhost:8080/records/update/' + this.props.match.params.id, obj)
+        axios.put('http://localhost:8080/records/' + this.props.match.params.id, obj, {
+            headers: {
+                Authorization: 'Bearer ' + this.state.token //the token is a variable which holds the token
+            }
+        })
             .then(res => {
                 console.log(res.data);
                 window.alert('Record updated!');
@@ -88,6 +96,7 @@ export default class EditRecord extends Component {
     render() {
         return (
             <div>
+                <Header />
                 <h3 align="center">Update Record</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">

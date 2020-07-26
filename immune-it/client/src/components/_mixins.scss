@@ -1,7 +1,8 @@
-@import 'variables';
+@import './variables';
 
 @mixin tablet{
     @media only screen and (min-width: $tablet-breakpoint){
+        @content;
         .header{
             display: flex;
             // justify-content: space-between;
@@ -16,5 +17,7 @@
 }
 
 @mixin desktop {
-
+    @media (min-width: $desktop-breakpoint) {
+        @content;
+    }
 }

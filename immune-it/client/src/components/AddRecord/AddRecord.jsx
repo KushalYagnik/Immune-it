@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import {Redirect} from 'react-router-dom';
 
 
 export default class AddRecord extends Component {
@@ -21,6 +22,7 @@ export default class AddRecord extends Component {
       user_birthdate: "",
       user_gender: "",
       user_recordfor: "",
+      token: localStorage.getItem("token")
     };
   }
 //>>>> Declare the functions to handle state change for those fields
@@ -30,6 +32,10 @@ export default class AddRecord extends Component {
   updateGender(e){this.setState({user_gender: e.target.value})};
   updateRecordfor(e){this.setState({user_recordfor: e.target.value})};
   
+  onCancel(){
+    return <Redirect to={"/"} />
+  }
+
   onSubmit(e) {
     e.preventDefault();
 
@@ -47,7 +53,11 @@ export default class AddRecord extends Component {
     };
 
     axios
-      .post("http://localhost:8080/records/add", newRecord)
+      .post("http://localhost:8080/records", newRecord,{
+        headers: {
+          Authorization: 'Bearer ' + this.state.token //the token is a variable which holds the token
+      }
+      })
       .then((res) => {
         console.log(res.data);
         window.alert('New Record added!')
@@ -180,6 +190,7 @@ export default class AddRecord extends Component {
               className="btn btn-primary"
             />
           </div>
+          <button className="btn btn-danger" onClick={(this.onCancel)}>Cancel</button>
         </form>
       </div>
     );

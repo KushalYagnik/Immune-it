@@ -1,35 +1,23 @@
 import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
-import Main from '../../components/Main/Main';
-// import Footer from '../../components/Footer/Footer';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import Knowledge from '../../components/Knowledge/Knowledge';
-import Records from '../../components/Records/Records';
-import About from '../../components/About/About';
-import Login from '../../pages/Login/Login';
-import Signup from '../../components/Signup/Signup';
-import AddRecord from '../../components/AddRecord/AddRecord';
-import EditRecord from '../../components/EditRecord/EditRecord';
-import ImmunizationRecord from '../../components/ImmunizationRecord/ImmunizationRecord';
 
 export class Home extends Component {
     render() {
         return (
             <div className="home">
-                <BrowserRouter>
-                    <Header />
-                    <Switch>
-                        <Route path='/view/:id' component={ImmunizationRecord}/>
-                        <Route path='/edit/:id' component={EditRecord} />
-                        <Route path='/create' component={AddRecord} />
-                        <Route path='/records' component={Records}/>
-                        <Route path='/about' component={About}/>
-                        <Route path='/knowledge' component={Knowledge}/>
-                        <Route path='/login' component={Login}/>
-                        <Route path='/signup' component={Signup}/>
-                        <Route exact path="/" component={Main}/>
-                    </Switch>
-                </BrowserRouter>
+                <Header />
+                <div className="main">
+                    <div className="hero">
+                        <h1 className="hero__header">Immunity has proved vital</h1>
+                        <p>Lorem Ipsum gypsum whatever!</p>
+                        <button>Get started</button>
+                        <video autoPlay muted loop id="myVideo" src={require('../../assets/production ID_4121354.mp4')} type='video/mp4' />
+                    </div>
+                    <section className="body">
+                        <div className="body__facts">Some health and immunity information goes here</div>
+                        <div className="body__info">Add any relevant info about the site here</div>
+                    </section>
+                </div>
             </div>
         )
     }
