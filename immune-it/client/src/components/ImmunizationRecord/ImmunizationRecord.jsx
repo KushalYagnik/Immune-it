@@ -12,7 +12,7 @@ const Record = props => (
         <td>{props.record.shot_provider}</td>
         <td>{props.record.shot_coverage}</td>
         <td> {/*CHANGE THE BELOW LINK APPROPRIATELY*/}
-            <Link to={"/edit/" + props.record._id}>Edit</Link>
+            <Link to={"/edit/pir/" + props.record._id}>Edit</Link>
         </td>
     </tr >
 )
@@ -26,17 +26,17 @@ export default class ImmunizationRecord extends Component {
 
     componentDidMount() {
         //CHECK THIS ENDPOINT 
-        axios.get('http://localhost:8080/view/', {
-            headers: {
-                Authorization: 'Bearer ' + this.state.token //the token is a variable which holds the token
-            }
-        })
-        .then(response => {
-            this.setState({ records: response.data });
-        })
-        .catch(function (error) {
-            console.log(error);
-        })
+        // axios.get('http://localhost:8080/view/', {
+        //     headers: {
+        //         Authorization: 'Bearer ' + this.state.token //the token is a variable which holds the token
+        //     }
+        // })
+        // .then(response => {
+        //     this.setState({ records: response.data });
+        // })
+        // .catch(function (error) {
+        //     console.log(error);
+        // })
     }
 
     recordsList() {
@@ -51,7 +51,7 @@ export default class ImmunizationRecord extends Component {
                 <div>
                     <Header />
                     <ImmuneModal token/>
-                    <h3>Records</h3>
+                    <h3>Personal Immunization Record</h3>
                     <table className="table table-striped" style={{ marginTop: 20 }} >
                         <thead>
                             <tr>

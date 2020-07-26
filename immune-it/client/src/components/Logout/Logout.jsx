@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Login from '../../pages/Login/Login';
+// import Login from '../../pages/Login/Login';
 import {Redirect} from 'react-router-dom';
 import axios from 'axios';
 

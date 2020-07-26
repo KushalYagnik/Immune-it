@@ -3,7 +3,8 @@ import './ImmunizationRecord.scss';
 import Modal from 'react-modal';
 import add from '../../assets/Icon-add.svg';
 import axios from 'axios';
-import MultiSelect from "@khanacademy/react-multi-select";
+import MultiSelect from "react-multi-select-component";
+
 
 Modal.setAppElement('#root')
 
@@ -12,36 +13,49 @@ Modal.setAppElement('#root')
 
 // ]
 
-export default function ImmunizationRecord() {
+export default function ImmunizationRecordModal() {
     const [modalIsOpen, setModalIsOpen] = useState(false)
     const [shot_date, setShotdate] = useState("")
     const [shot_brand, setShotbrand] = useState("")
     const [shot_provider, setShotprovider] = useState("")
-    const [shot_coverage, setShotcoverage] = useState([
-        'Diphtheria', 'Tetanus', 'Pertussis', 'Polia', 'Hib', 'Pneumococcal', 'Rotavirus', 'Measles',
-        'Mumps', 'Rubella', 'Varicella', 'Meningococcal', 'Hepatitis_B', 'Hepatitis_A',
-        'HPV', 'Influenza', 'Coronavirus'
-    ])
-    const [shot_coverageSelected, setShotcoverageSelected] = useState([])
-
+    const [selected, setSelected] = useState([]);
+    const options = [
+        { label: "Diphtheria", value: "Diphtheria" },
+        { label: "Tetanus", value: "Tetanus" },
+        { label: "Pertussis", value: "Pertussis", disabled: true },
+        { label: "Polio", value: "Polio" },
+        { label: "Hib", value: "Hib" },
+        { label: "Pneumococcal", value: "Pneumococcal" },
+        { label: "Rotavirus", value: "Rotavirus" },
+        { label: "Measles", value: "Measles" },
+        { label: "Mumps", value: "Mumps" },
+        { label: "Rubella", value: "Rubella" },
+        { label: "Varicella", value: "Varicella" },
+        { label: "Meningococcal", value: "Meningococcal" },
+        { label: "Hepatitis B", value: "Hepatitis B" },
+        { label: "HPV", value: "HPV" },
+        { label: "Influenza", value: "Influenza" },
+        { label: "Hepatitis A", value: "Hepatitis A" },
+      ];
 
     // const [token,setToken] = useState( localStorage.getItem("token"))
 
     const addRecord = () => {
         //CHANGE THIS ENDPOINT AFTER CREATING A NEW ONE
-        axios
-            .post('http://localhost:8080/view' + this.props.match.params.id, {
-                "shot_date": shot_date,
-                "shot_brand": shot_brand,
-                "shot_provider": shot_provider,
-                "shot_coverage": shot_coverageSelected,
-            }, { headers: { Authorization: 'Bearer ' + localStorage.getItem("token") } })
-            .then(res => {
-                console.log(res.data);
-                window.alert('Personal Immunization Record added!')
-            })
-            .catch(err => console.error(err))
+        // axios
+        //     .post('http://localhost:8080/view' + this.props.match.params.id, {
+        //         "shot_date": shot_date,
+        //         "shot_brand": shot_brand,
+        //         "shot_provider": shot_provider,
+        //         "shot_coverage": shot_coverageSelected,
+        //     }, { headers: { Authorization: 'Bearer ' + localStorage.getItem("token") } })
+        //     .then(res => {
+        //         console.log(res.data);
+        //         window.alert('Personal Immunization Record added!')
+        //     })
+        //     .catch(err => console.error(err))
     }
+
     return (
         <div>
             <div className="modalI__select--containter">
@@ -59,14 +73,12 @@ export default function ImmunizationRecord() {
                             <label className="modalI__form--label" htmlFor="Health-care Provider:">Health-care Provider:</label>
                             <input type="text" className="modalI__form--input" onChange={(e) => setShotprovider(e.target.value)} name="Health-care Provider:" placeholder="Health-care Provider:" />
                             <label className="modalI__form--label" htmlFor="VaccineCoverage">Vaccine Coverage:</label>
-                            {/* <select onChange={(e) => setShotcoverage(e.target.value)} name="VaccineCoverage" id="modalI__form--drpdwn" className="modalI__form--input"> */}
-                            <MultiSelect shot_coverage={shot_coverage} shot_coverageSelected={shot_coverageSelected} setShotcoverage={shot_coverageSelected => this.useEffect({shot_coverageSelected})}/>
-                                {/* {shot_coverage.map(item => {
-                                    return (
-                                        <option value={item}>{item}</option>
-                                    )
-                                })}
-                            </select> */}
+                            <MultiSelect
+                                options={options}
+                                value={selected}
+                                onChange={setSelected}
+                                labelledBy={"Select"}
+                            />
                         </div>
                         <div className="modalI__form--containerButtons">
                             <button className="modalI__form--save" onClick={addRecord}>Add</button>

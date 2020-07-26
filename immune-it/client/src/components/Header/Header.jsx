@@ -2,10 +2,7 @@ import React, { Component } from 'react'
 import './Header.scss';
 import Logo from '../Logo/Logo';
 import {Link} from 'react-router-dom';
-import axios from 'axios';
-import Login from '../../pages/Login/Login';
 import Logout from '../Logout/Logout';
-// import Nav from '../Nav/Nav';
 
 export class Header extends Component {
     constructor(props){

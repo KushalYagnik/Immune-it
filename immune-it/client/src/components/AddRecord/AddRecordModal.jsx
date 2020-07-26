@@ -34,7 +34,7 @@ export default function AddRecordModal() {
   return (
     <div>
       <div className="modalI__select--containter">
-        <button className="modalI__select" onClick={() => setModalIsOpen(true)}><img className="modalI__select--img" src={add} /></button>
+        <button className="modalI__select" onClick={() => setModalIsOpen(true)}><img className="modalI__select--img" src={add} alt="modal"/></button>
       </div>
       <div className="modalI">
         <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
