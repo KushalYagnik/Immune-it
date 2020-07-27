@@ -8,7 +8,7 @@ const router = express.Router()
 router.get('/records/:id', auth, async (req, res) => {
     try
     {
-        const record = await RecordsInstance.findOne({ _id: req.params.id, user: req.user._id });
+        const record = await RecordsInstance.findOne({ _id: req.params.id });
         if(record) res.status(200).json(record);
         else res.status(404).send("Record not found");
     }

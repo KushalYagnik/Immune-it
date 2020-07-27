@@ -36,7 +36,7 @@ export default class EditRecord extends Component {
                 this.setState({
                     user_firstname: response.data.user_firstname,
                     user_lastname: response.data.user_lastname,
-                    user_birthdate: response.data.user_birthdate,
+                    user_birthdate: new Date(response.data.user_birthdate).toISOString().split('T')[0],
                     user_gender: response.data.user_gender,
                     user_recordfor: response.data.user_recordfor,
                 })

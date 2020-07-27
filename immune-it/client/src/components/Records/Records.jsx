@@ -9,7 +9,7 @@ const Record = props => (
     < tr >
         <td>{props.record.user_firstname}</td>
         <td>{props.record.user_lastname}</td>
-        <td>{props.record.user_birthdate}</td>
+        <td>{new Date(props.record.user_birthdate).toISOString().split('T')[0]}</td>
         <td>{props.record.user_gender}</td>
         <td>{props.record.user_recordfor}</td>
         <td>

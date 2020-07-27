@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Login from '../../pages/Login/Login';
 import Header from  '../../components/Header/Header';
-import ImmuneModal from '../ImmunizationRecord/ImmunizationRecordModal'
+import ImmuneModal from '../ImmunizationRecord/AddPIR';
 
 const Record = props => (
     < tr >
-        <td>{props.record.shot_date}</td>
+        <td>{new Date(props.record.shot_date).toISOString().split('T')[0]}</td>
         <td>{props.record.shot_brand}</td>
         <td>{props.record.shot_provider}</td>
-        <td>{props.record.shot_coverage}</td>
+        <td>{props.record.shot_coverage.map(i => (<li>{i}</li>))}</td>
         <td> {/*CHANGE THE BELOW LINK APPROPRIATELY*/}
-            <Link to={"/edit/pir/" + props.record._id}>Edit</Link>
+            <Link to={"/pir/" + props.record._id}>Edit</Link>
         </td>
     </tr >
 )
@@ -21,22 +21,23 @@ export default class ImmunizationRecord extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { records: [], token: localStorage.getItem("token") };
+        // console.log()
+        this.state = { records: [], record_id: props.match.params.id,token: localStorage.getItem("token") };
+        console.log(this.state.record_id)
     }
 
     componentDidMount() {
-        //CHECK THIS ENDPOINT 
-        // axios.get('http://localhost:8080/view/', {
-        //     headers: {
-        //         Authorization: 'Bearer ' + this.state.token //the token is a variable which holds the token
-        //     }
-        // })
-        // .then(response => {
-        //     this.setState({ records: response.data });
-        // })
-        // .catch(function (error) {
-        //     console.log(error);
-        // })
+        axios.get(`http://localhost:8080/pirAll/${this.state.record_id}` , {
+            headers: {
+                Authorization: 'Bearer ' + this.state.token //the token is a variable which holds the token
+            }
+        })
+        .then(response => {
+            this.setState({ records: response.data });
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
     }
 
     recordsList() {
@@ -50,7 +51,7 @@ export default class ImmunizationRecord extends Component {
             return (
                 <div>
                     <Header />
-                    <ImmuneModal token/>
+                    <ImmuneModal record={this.state.record_id}/>
                     <h3>Personal Immunization Record</h3>
                     <table className="table table-striped" style={{ marginTop: 20 }} >
                         <thead>

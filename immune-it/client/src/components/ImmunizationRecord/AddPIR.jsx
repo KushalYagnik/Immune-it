@@ -1,28 +1,24 @@
 import React, { useState } from 'react';
-import './ImmunizationRecord.scss';
+import './AddPIR.scss';
 import Modal from 'react-modal';
 import add from '../../assets/Icon-add.svg';
 import axios from 'axios';
 import MultiSelect from "react-multi-select-component";
 
-
 Modal.setAppElement('#root')
 
-// const options = [
-//     {label: "", value: ""},
-
-// ]
-
-export default function ImmunizationRecordModal() {
-    const [modalIsOpen, setModalIsOpen] = useState(false)
-    const [shot_date, setShotdate] = useState("")
-    const [shot_brand, setShotbrand] = useState("")
-    const [shot_provider, setShotprovider] = useState("")
+export default function AddPIR(params) {
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [shot_date, setShotdate] = useState("");
+    const [shot_brand, setShotbrand] = useState("");
+    const [shot_provider, setShotprovider] = useState("");
     const [selected, setSelected] = useState([]);
+    const [shot_notes, setShotnotes] = useState("");
     const options = [
         { label: "Diphtheria", value: "Diphtheria" },
         { label: "Tetanus", value: "Tetanus" },
-        { label: "Pertussis", value: "Pertussis", disabled: true },
+        // { label: "Pertussis", value: "Pertussis", disabled: true },
+        { label: "Pertussis", value: "Pertussis"},
         { label: "Polio", value: "Polio" },
         { label: "Hib", value: "Hib" },
         { label: "Pneumococcal", value: "Pneumococcal" },
@@ -38,28 +34,28 @@ export default function ImmunizationRecordModal() {
         { label: "Hepatitis A", value: "Hepatitis A" },
       ];
 
-    // const [token,setToken] = useState( localStorage.getItem("token"))
-
     const addRecord = () => {
         //CHANGE THIS ENDPOINT AFTER CREATING A NEW ONE
-        // axios
-        //     .post('http://localhost:8080/view' + this.props.match.params.id, {
-        //         "shot_date": shot_date,
-        //         "shot_brand": shot_brand,
-        //         "shot_provider": shot_provider,
-        //         "shot_coverage": shot_coverageSelected,
-        //     }, { headers: { Authorization: 'Bearer ' + localStorage.getItem("token") } })
-        //     .then(res => {
-        //         console.log(res.data);
-        //         window.alert('Personal Immunization Record added!')
-        //     })
-        //     .catch(err => console.error(err))
+        axios
+            .post('http://localhost:8080/pir', {
+                "shot_date": shot_date,
+                "shot_brand": shot_brand,
+                "shot_provider": shot_provider,
+                "shot_coverage": selected.map((value) => value.value),
+                "shot_notes": shot_notes,
+                "record": params.record 
+            }, { headers: { Authorization: 'Bearer ' + localStorage.getItem("token") } })
+            .then(res => {
+                console.log(res.data);
+                window.alert('Personal Immunization Record added!')
+            })
+            .catch(err => console.error(err))
     }
 
     return (
         <div>
             <div className="modalI__select--containter">
-                <button className="modalI__select" onClick={() => setModalIsOpen(true)}><img className="modalI__select--img" src={add} /></button>
+                <button className="modalI__select" onClick={() => setModalIsOpen(true)}><img className="modalI__select--img" src={add} alt="addPIR"/></button>
             </div>
             <div className="modalI">
                 <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
@@ -70,8 +66,8 @@ export default function ImmunizationRecordModal() {
                             <input type="date" className="modalI__form--input" onChange={(e) => setShotdate(e.target.value)} name="Date" placeholder="Date" />
                             <label className="modalI__form--label" htmlFor="VaccineBrand">Vaccine Brand:</label>
                             <input type="text" className="modalI__form--input" onChange={(e) => setShotbrand(e.target.value)} name="VaccineBrand" placeholder="Vaccine Brand" />
-                            <label className="modalI__form--label" htmlFor="Health-care Provider:">Health-care Provider:</label>
-                            <input type="text" className="modalI__form--input" onChange={(e) => setShotprovider(e.target.value)} name="Health-care Provider:" placeholder="Health-care Provider:" />
+                            <label className="modalI__form--label" htmlFor="Health-care Provider">Health-care Provider:</label>
+                            <input type="text" className="modalI__form--input" onChange={(e) => setShotprovider(e.target.value)} name="Health-care Provider" placeholder="Health-care Provider" />
                             <label className="modalI__form--label" htmlFor="VaccineCoverage">Vaccine Coverage:</label>
                             <MultiSelect
                                 options={options}
@@ -79,6 +75,8 @@ export default function ImmunizationRecordModal() {
                                 onChange={setSelected}
                                 labelledBy={"Select"}
                             />
+                            <label className="modalI__form--label" htmlFor="Doctor's Notes">Doctor's Notes:</label>
+                            <textarea className="modalI__form--input modalI__form--textarea" onChange={(e) => setShotnotes(e.target.value)} name="Doctor's Notes" placeholder="Doctor's Notes"/>
                         </div>
                         <div className="modalI__form--containerButtons">
                             <button className="modalI__form--save" onClick={addRecord}>Add</button>
