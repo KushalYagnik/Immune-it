@@ -1,6 +1,6 @@
 import React from 'react';
 import './Logo.scss';
-import logo from '../../assets/Immune-It2_revised.png';
+import logo from '../../assets/immuneit_logo_crp.png';
 
 export default function Logo() {
     return (

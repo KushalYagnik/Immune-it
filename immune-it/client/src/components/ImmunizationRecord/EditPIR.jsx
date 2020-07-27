@@ -88,7 +88,7 @@ export default class EditPIR extends Component {
                 window.alert('Record deleted!');
             });
 
-        this.props.history.push("/");
+        this.props.history.push("/records");
         // this.props.history.goBack();
     }
 
@@ -112,7 +112,7 @@ export default class EditPIR extends Component {
                 window.alert('Record updated!');
             });
 
-        this.props.history.push("/");
+        this.props.history.push("/records");
         // this.props.history.goBack()
 
     }

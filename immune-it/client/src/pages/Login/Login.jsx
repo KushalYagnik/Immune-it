@@ -49,7 +49,8 @@ export default class Login extends Component {
             );
         }
         return (
-            <div><Header />
+            <div className="container_login">
+                {/* <Header /> */}
                 <div className="login">
                     <form className="login__wrapper" onSubmit={this.onSubmit}>
                         <div className="login__greeting">
@@ -59,18 +60,18 @@ export default class Login extends Component {
                         </div>
                         <div className="login__inputs">
                             <input type="email" className="login__email input" placeholder="Email" value={this.state.email} onChange={this.updateEmail}/>
-                            <input type="password" className="login__password input" placeholder="Password" value={this.state.password} onChange={this.updatePassword}/>
+                            <br/><input type="password" className="login__password input" placeholder="Password" value={this.state.password} onChange={this.updatePassword}/>
                         </div>
                         <div className="login__CTAs">
-                            <button type="submit" className="login__login">Login</button>
+                            <button type="submit" className="login__login">Login</button><br/>
                             <Link to="/signup">
                                 <button className="login__signup">Sign Up</button>
                             </Link>
                         </div>
                     </form>
                     <div className="login__lang">
-                        <button className="login__eng">English</button>
-                        <button className="login__fra">Français</button>
+                        <button className="login__eng langInput">English</button>
+                        <button className="login__fra langInput">Français</button>
                     </div>
                 </div>
             </div>            

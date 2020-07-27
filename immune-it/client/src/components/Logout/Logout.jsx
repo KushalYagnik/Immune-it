@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import Login from '../../pages/Login/Login';
+import './Logout.scss';
 import {Redirect} from 'react-router-dom';
 import axios from 'axios';
 
@@ -25,7 +25,7 @@ export class Logout extends Component {
         if(this.state.loggedIn) {
             return (
                 <div>
-                    <button onClick={(this.logout)}>Logout</button>
+                    <button className="logout__btn" onClick={(this.logout)}>Logout</button>
                     {/* <Login/> */}
                 </div>
             )

@@ -10,7 +10,8 @@ const Record = props => (
         <td>{new Date(props.record.shot_date).toISOString().split('T')[0]}</td>
         <td>{props.record.shot_brand}</td>
         <td>{props.record.shot_provider}</td>
-        <td>{props.record.shot_coverage.map(i => (<li>{i}</li>))}</td>
+        <td>{props.record.shot_coverage.map((i) => (<li key={i}>{i}</li>))}</td>
+        <td>{props.record.shot_notes}</td>
         <td> {/*CHANGE THE BELOW LINK APPROPRIATELY*/}
             <Link to={"/pir/" + props.record._id}>Edit</Link>
         </td>
@@ -60,6 +61,7 @@ export default class ImmunizationRecord extends Component {
                                 <th>Vaccine Brand</th>
                                 <th>Healthcare Provider</th>    
                                 <th>Diseases covered by vaccine</th>
+                                <th>Doctor's Notes</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
