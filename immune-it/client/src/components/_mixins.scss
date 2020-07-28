@@ -9,6 +9,11 @@
       flex-direction: column-reverse;
       justify-content: space-between;
       align-items: center;
+      &__login {
+        width: 60%;
+        padding: 2px;
+        margin-bottom: 5px;
+      }
       &__wrapper {
         width: 50%;
       }
@@ -24,6 +29,18 @@
         border: 2px solid white;
         border-radius: 10px;
         font-style: italic;
+      }
+    }
+    .signup {
+      margin: 2em 0;
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: space-between;
+      align-items: center;
+      &__signup {
+        width: 60%;
+        padding: 3px;
+        margin-bottom: 5px;
       }
     }
     .header {
@@ -62,6 +79,9 @@
     .table-responsive {
       margin: 1.1em;
     }
+    .input {
+      width: 70%;
+    }
   }
 }
 
@@ -69,12 +89,16 @@
   @media only screen and (min-width: $desktop-breakpoint) {
     @content;
     .login {
-      margin: 2em 0;
+      margin: 15em 0;
       display: flex;
       flex-direction: column-reverse;
       justify-content: space-between;
       align-items: center;
-
+      &__login {
+        width: 40%;
+        padding: 2px;
+        margin-bottom: 5px;
+      }
       &__wrapper {
         width: 40%;
       }
@@ -90,6 +114,21 @@
         border: 2px solid white;
         border-radius: 10px;
         font-style: italic;
+      }
+    }
+    .signup {
+      margin: 15em 0;
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: space-between;
+      align-items: center;
+      &__signup {
+        width: 50%;
+        padding: 3px;
+        margin-bottom: 5px;
+      }
+      &__wrapper {
+        width: 40%;
       }
     }
     .header {
@@ -136,6 +175,9 @@
         top: 70%;
         padding: 10px 2.5em;
       }
+    }
+    .input {
+      width: 60%;
     }
   }
 }
