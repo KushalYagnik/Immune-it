@@ -1,7 +1,15 @@
-@import '../variables';
-@import '../mixins';
+@import "../variables";
+@import "../mixins";
 
-.immurecordspage{
-    background-color: white;
-    height: 100%;
+.immurecordspage {
+  background-color: white;
+  height: 100%;
+}
+#vaccine-coverage-table {
+  border: 2px solid grey;
+  border-radius: 10px;
+}
+#vaccine-coverage-table li {
+  text-align: left;
+  list-style-type: circle;
 }

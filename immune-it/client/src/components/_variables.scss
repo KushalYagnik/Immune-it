@@ -1,29 +1,24 @@
 $tablet-breakpoint: 768px;
+$laptop-breakpoint: 1024px;
 $desktop-breakpoint: 1200px;
 
 //Add color palette variables below during design phase
 
 //Add font-face variables here
 @font-face {
-    font-family: 'Avenir Next LT Pro';
+    font-family: 'myfontBold';
     src:url("../assets/fonts/AvenirNextProLT/Linotype-AvenirNextLTPro-Bold.otf");
     font-weight: 700;
 }
 
 @font-face {
-    font-family: 'Avenir Next LT Pro';
+    font-family: 'myfontDemi';
     src:url("../assets/fonts/AvenirNextProLT/Linotype-AvenirNextLTPro-Demi.otf");
     font-weight: 500;
 }
 
 @font-face {
-    font-family: 'Avenir Next LT Pro';
+    font-family: 'myfontRegular';
     src:url("../assets/fonts/AvenirNextProLT/Linotype-AvenirNextLTPro-Regular.otf");
     font-weight: 400;
-}
-
-@font-face {
-    font-family: 'Avenir Next LT Pro';
-    src:url("../assets/fonts/AvenirNextProLT/Linotype-AvenirNextLTPro-Thin.otf");
-    font-weight: 100;
 }

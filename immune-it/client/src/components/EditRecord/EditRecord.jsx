@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Header from '../Header/Header';
+import './EditRecord.scss'
 
 export default class EditRecord extends Component {
 
@@ -27,7 +28,7 @@ export default class EditRecord extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:8080/records/' + this.props.match.params.id,{
+        axios.get('http://localhost:8080/records/' + this.props.match.params.id, {
             headers: {
                 Authorization: 'Bearer ' + this.state.token //the token is a variable which holds the token
             }
@@ -98,7 +99,7 @@ export default class EditRecord extends Component {
             <div>
                 <Header />
                 <h3 align="center">Update Record</h3>
-                <form className="w-100 p-3" onSubmit={this.onSubmit}>
+                <form className="w-100 p-3" id="update-familyRec" onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label>First Name: </label>
                         <input

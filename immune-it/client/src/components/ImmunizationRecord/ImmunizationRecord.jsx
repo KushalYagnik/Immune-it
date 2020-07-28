@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Login from '../../pages/Login/Login';
-import Header from  '../../components/Header/Header';
+import Header from '../../components/Header/Header';
 import ImmuneModal from '../ImmunizationRecord/AddPIR';
 import './ImmunizationRecord.scss';
 
@@ -24,47 +24,47 @@ export default class ImmunizationRecord extends Component {
     constructor(props) {
         super(props);
         // console.log()
-        this.state = { records: [], record_id: props.match.params.id,token: localStorage.getItem("token") };
+        this.state = { records: [], record_id: props.match.params.id, token: localStorage.getItem("token") };
         console.log(this.state.record_id)
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:8080/pirAll/${this.state.record_id}` , {
+        axios.get(`http://localhost:8080/pirAll/${this.state.record_id}`, {
             headers: {
                 Authorization: 'Bearer ' + this.state.token //the token is a variable which holds the token
             }
         })
-        .then(response => {
+            .then(response => {
                 this.setState({ records: response.data });
-        })
-        .catch(function (error) {
-            console.log(error);
-        })
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
     }
 
     recordsList() {
-            return this.state.records.map(function (currentRecord, i) {
-                return <Record record={currentRecord} key={i} />;
-            })
+        return this.state.records.map(function (currentRecord, i) {
+            return <Record record={currentRecord} key={i} />;
+        })
         //  else {
         //     return (<h2>Looks like you have not recorded your Immunization history yet...Let's add some!</h2>)
         // }
-        
+
     }
 
     render() {
-        if(this.state.token) {
+        if (this.state.token) {
             return (
                 <div className="immurecordspage">
                     <Header />
-                    <ImmuneModal record={this.state.record_id}/>
+                    <ImmuneModal record={this.state.record_id} />
                     <h3>Personal Immunization Record</h3>
-                    <table className="table table-striped table-responsive w-auto p-3 h-100 d-md-inline-block" style={{ marginTop: 20 }} >
+                    <table className="table table-striped table-responsive w-auto p-3 h-100 d-md-inline-block" id="vaccine-coverage-table" style={{ marginTop: 20 }} >
                         <thead>
                             <tr>
                                 <th>Date</th>
                                 <th>Vaccine Brand</th>
-                                <th>Healthcare Provider</th>    
+                                <th>Healthcare Provider</th>
                                 <th>Diseases covered by vaccine</th>
                                 <th>Doctor's Notes</th>
                                 <th>Action</th>
@@ -76,6 +76,6 @@ export default class ImmunizationRecord extends Component {
                     </table>
                 </div>
             )
-        } else {return (<Login/>)}
+        } else { return (<Login />) }
     }
 }

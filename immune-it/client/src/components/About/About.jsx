@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import './About.scss';
 import Header from '../../components/Header/Header';
-// import EditModal from '../../components/EditRecord/EditRecordModal'
+import waitImg from '../../assets/comingsoonimg.png';
 
 export class About extends Component {
     render() {
         return (
             <div>
                 <Header />
-                {/* <EditModal/> */}
-
-                You're in About page now!
-                This is the place to right about myself and the project (stack used, etc.)
+                <h2>About page</h2>
+                <p>Add some project info (stack used, challenges, etc.) and self introduction here!</p>
+                <img id="comingSoon" src={waitImg} alt="under-construction-img"/>
             </div>
         )
     }

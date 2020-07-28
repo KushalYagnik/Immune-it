@@ -122,7 +122,7 @@ export default class EditPIR extends Component {
             <div>
                 <Header />
                 <h3 align="center">Update Personal Immunization Record</h3>
-                <form className="w-100 p-3" onSubmit={this.onSubmit}>
+                <form className="w-100 p-3" id="update-ImmuRec" onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label className="form-check-label">Date</label>
                         <input

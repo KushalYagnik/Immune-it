@@ -1,5 +1,5 @@
-@import '../../components/mixins';
-@import '../../components//variables';
+@import "../../components/mixins";
+@import "../../components//variables";
 
 .hero {
   position: relative;
@@ -10,15 +10,15 @@
     width: 100%;
     font-size: 1.5em;
     position: absolute;
-    &-key{
-        // color: tomato;
+    &-key {
+      // color: tomato;
     }
-    &-strength{
-        text-transform: uppercase;
-        color: gold;
+    &-strength {
+      text-transform: uppercase;
+      color: gold;
     }
   }
-  &__text-wrap{
+  &__text-wrap {
     padding: 1em 0;
     background-color: rgba(42, 55, 58, 0.5);
     height: 10em;
@@ -32,7 +32,7 @@
     top: 38%;
     font-size: 1.1em;
   }
-  &__CTA{
+  &__CTA {
     background-color: rgba(87, 165, 179, 0.9);
     border-radius: 8px;
     padding: 5px 10px;
@@ -42,19 +42,30 @@
     top: 88%;
     left: 50%;
     transform: translate(-50%, -50%);
-    &:hover{
-        color: rgb(87, 165, 179);
-        background-color: white;
-        // transform: scale(1.1);
-        transition: 0.2s ease-in;
+    &:hover {
+      color: rgb(87, 165, 179);
+      background-color: white;
+      // transform: scale(1.1);
+      transition: 0.2s ease-in;
     }
   }
 }
-.home__body{
-    background-color: rgb(87, 165, 179);
-    border: 2px solid rgb(87, 165, 179);
-    color: white;
-    max-width: 100%;
+.home__body {
+  padding: 1em;
+  background-color: rgb(87, 165, 179);
+  // border: 2px solid rgb(87, 165, 179);
+  color: white;
+  // text-align: left;
+  // list-style-type: circle;
+  // max-width: 100%;
+}
+.home__body li {
+  text-align: left;
+  list-style-type: circle;
+}
+#immunization-schedule {
+  color: white;
+  background-color: rgba(131, 184, 196, 0.5);
 }
 #myVideo {
   width: 100%;

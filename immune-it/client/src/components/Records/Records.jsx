@@ -57,8 +57,8 @@ export default class Records extends Component {
                 <div className="recordspage">
                     <Header />
                     <Modal token/>
-                    <h3>Records</h3>
-                    <table className="table table-striped table-responsive w-auto p-3 h-100 d-md-inline-block " style={{ marginTop: 20 }} >
+                    <h3>Record of family's immunization history</h3>
+                    <table className="table table-striped table-responsive w-auto p-3 h-100 d-md-inline-block " id="family-record" style={{ marginTop: 20 }} >
                     {/* <table className="records__table" style={{ marginTop: 20 }} > */}
                         <thead>
                             <tr>
