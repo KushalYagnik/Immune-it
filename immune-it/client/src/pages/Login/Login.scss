@@ -35,9 +35,6 @@ html{
         border: 2px solid white;
         border-radius: 15px;
         width: 80%;
-        // &:hover{
-        //     transform: scale(1.1);   
-        // }
     }
     &__signup{
         color: white;
@@ -46,7 +43,6 @@ html{
     }
     &__lang{
         margin-top: 1.5em;
-        // border: 1px solid white;
         width: 100%;
         display: flex;
         justify-content: space-evenly;

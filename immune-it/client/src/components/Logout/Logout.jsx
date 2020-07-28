@@ -26,14 +26,12 @@ export class Logout extends Component {
             return (
                 <div>
                     <button className="logout__btn" onClick={(this.logout)}>Logout</button>
-                    {/* <Login/> */}
                 </div>
             )
         }
         else {
             return (
                 <Redirect to={"/"} />
-                // this.props.history.push('/home')
             );
         }
     }

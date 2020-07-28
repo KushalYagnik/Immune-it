@@ -10,9 +10,6 @@
     width: 100%;
     font-size: 1.5em;
     position: absolute;
-    &-key {
-      // color: tomato;
-    }
     &-strength {
       text-transform: uppercase;
       color: gold;
@@ -45,7 +42,6 @@
     &:hover {
       color: rgb(87, 165, 179);
       background-color: white;
-      // transform: scale(1.1);
       transition: 0.2s ease-in;
     }
   }
@@ -53,11 +49,7 @@
 .home__body {
   padding: 1em;
   background-color: rgb(87, 165, 179);
-  // border: 2px solid rgb(87, 165, 179);
   color: white;
-  // text-align: left;
-  // list-style-type: circle;
-  // max-width: 100%;
 }
 .home__body li {
   text-align: left;

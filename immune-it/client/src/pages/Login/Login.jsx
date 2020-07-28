@@ -44,7 +44,6 @@ export default class Login extends Component {
             console.log("Success")
             return (
                 <Redirect to={"/home"} />
-                // this.props.history.push('/home')
             );
         }
         return (

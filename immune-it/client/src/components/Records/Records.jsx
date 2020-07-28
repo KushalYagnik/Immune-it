@@ -18,9 +18,6 @@ const Record = props => (
             <br/><br/>
             <Link to={"/view/" + props.record._id}>Check Immunization History</Link>
         </td>
-        {/* <td>
-            <Link to={"/view/" + props.record._id}>Immunization Record</Link>
-        </td> */}
     </tr >
 )
 
@@ -34,7 +31,7 @@ export default class Records extends Component {
     componentDidMount() {
         axios.get('http://localhost:8080/records/', {
             headers: {
-                Authorization: 'Bearer ' + this.state.token //the token is a variable which holds the token
+                Authorization: 'Bearer ' + this.state.token
             }
         })
         .then(response => {
@@ -59,7 +56,6 @@ export default class Records extends Component {
                     <Modal token/>
                     <h3>Record of family's immunization history</h3>
                     <table className="table table-striped table-responsive w-auto p-3 h-100 d-md-inline-block " id="family-record" style={{ marginTop: 20 }} >
-                    {/* <table className="records__table" style={{ marginTop: 20 }} > */}
                         <thead>
                             <tr>
                                 <th>First Name</th>
@@ -67,8 +63,6 @@ export default class Records extends Component {
                                 <th>Birthdate</th>
                                 <th>Gender</th>
                                 <th>Record for</th>
-                                {/* <th>Doctor's Name/Healthcare provider</th> */}
-                                {/* <th>Doctor's Notes</th> */}
                                 <th>Action</th>
                             </tr>
                         </thead>

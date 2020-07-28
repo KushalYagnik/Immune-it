@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Header from '../Header/Header';
 import MultiSelect from "react-multi-select-component";
+import './EditPIR.scss';
 
 export default class EditPIR extends Component {
     constructor(props) {
         super(props);
 
-        //>>>>>>> Bind the state to event handler functions    
         this.updateShotdate = this.updateShotdate.bind(this);
         this.updateShotbrand = this.updateShotbrand.bind(this);
         this.updateShotprovider = this.updateShotprovider.bind(this);
@@ -51,7 +51,7 @@ export default class EditPIR extends Component {
     componentDidMount() {
         axios.get('http://localhost:8080/pir/' + this.props.match.params.id, {
             headers: {
-                Authorization: 'Bearer ' + this.state.token //the token is a variable which holds the token
+                Authorization: 'Bearer ' + this.state.token
             }
         })
             .then(response => {
@@ -70,7 +70,6 @@ export default class EditPIR extends Component {
             })
     }
 
-    //>>>> Declare the functions to handle state change for those fields
     updateShotdate(e) { this.setState({ shot_date: e.target.value }) };
     updateShotbrand(e) { this.setState({ shot_brand: e.target.value }) };
     updateShotprovider(e) { this.setState({ shot_provider: e.target.value }) };
@@ -80,7 +79,7 @@ export default class EditPIR extends Component {
     onDelete() {
         axios.delete("http://localhost:8080/pir/" + this.props.match.params.id, {
             headers: {
-                Authorization: 'Bearer ' + this.state.token //the token is a variable which holds the token
+                Authorization: 'Bearer ' + this.state.token
             }
         })
             .then((res) => {
@@ -89,7 +88,6 @@ export default class EditPIR extends Component {
             });
 
         this.props.history.push("/records");
-        // this.props.history.goBack();
     }
 
     onSubmit(e) {
@@ -104,7 +102,7 @@ export default class EditPIR extends Component {
         console.log(obj);
         axios.put('http://localhost:8080/pir/' + this.props.match.params.id, obj, {
             headers: {
-                Authorization: 'Bearer ' + this.state.token //the token is a variable which holds the token
+                Authorization: 'Bearer ' + this.state.token
             }
         })
             .then(res => {
@@ -113,8 +111,6 @@ export default class EditPIR extends Component {
             });
 
         this.props.history.push("/records");
-        // this.props.history.goBack()
-
     }
 
     render() {

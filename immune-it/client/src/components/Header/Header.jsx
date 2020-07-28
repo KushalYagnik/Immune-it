@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import './Header.scss';
-// import Logo from '../../assets/immuneit_logo_crp.png';
 import Logocomp from '../Logo/Logo';
 import { Link } from 'react-router-dom';
 import Logout from '../Logout/Logout';
@@ -25,7 +24,6 @@ export class Header extends Component {
             return (
                 <div className="header">
                     <div className="header__logo" id="logo-wrap">
-                        {/* <Link to="/"><img src={Logo} className="header__logo" id="logo"/></Link> */}
                         <Link to="/"><Logocomp/></Link>
                     </div>
                     <div className="header__container">

@@ -14,7 +14,6 @@ export default function AddRecordModal() {
   const [user_birthdate, setBdate] = useState("")
   const [user_gender, setGender] = useState("Male")
   const [user_recordfor, setRecordfor] = useState("Self")
-  // const [token,setToken] = useState( localStorage.getItem("token"))
 
   const addRecord = () => {
     axios

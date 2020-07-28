@@ -11,18 +11,11 @@
     justify-content: center;
 }
 .header{
-    &__logo{
-        // display: flex;
-        // justify-content: center;
-        // text-align: center;
-        // margin-left: 4em;
-    }
     &__container{
         display: flex;
         justify-content: space-evenly;
         border: 1px solid rgb(87, 165, 179);
         align-items: center;
-        // vertical-align: middle;
         background-color: rgba(87, 165, 179, 0.9);
     }
     &__menu{
@@ -30,10 +23,8 @@
         width: 60%;
         justify-content: space-between;
         align-items: center;
-        // box-sizing: content-box;
         padding-top: 15px;
         &-item{
-            // width: 10em;
             list-style: none;
         }
         &-link{
@@ -45,12 +36,10 @@
                 padding-bottom: 10px;
                 border-bottom: 2px solid rgba(221, 37, 37, 0.74);
                 transition: 0.1s ease;
-                // scroll-behavior: smooth;
             }
         }
     }
 }
 
 @include tablet;
-// @include laptop;
 @include desktop;

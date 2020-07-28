@@ -13,7 +13,7 @@ const Record = props => (
         <td>{props.record.shot_provider}</td>
         <td>{props.record.shot_coverage.map((i) => (<li key={i}>{i}</li>))}</td>
         <td>{props.record.shot_notes}</td>
-        <td> {/*CHANGE THE BELOW LINK APPROPRIATELY*/}
+        <td>
             <Link to={"/pir/" + props.record._id}>Edit</Link>
         </td>
     </tr >
@@ -31,7 +31,7 @@ export default class ImmunizationRecord extends Component {
     componentDidMount() {
         axios.get(`http://localhost:8080/pirAll/${this.state.record_id}`, {
             headers: {
-                Authorization: 'Bearer ' + this.state.token //the token is a variable which holds the token
+                Authorization: 'Bearer ' + this.state.token
             }
         })
             .then(response => {
@@ -46,10 +46,6 @@ export default class ImmunizationRecord extends Component {
         return this.state.records.map(function (currentRecord, i) {
             return <Record record={currentRecord} key={i} />;
         })
-        //  else {
-        //     return (<h2>Looks like you have not recorded your Immunization history yet...Let's add some!</h2>)
-        // }
-
     }
 
     render() {

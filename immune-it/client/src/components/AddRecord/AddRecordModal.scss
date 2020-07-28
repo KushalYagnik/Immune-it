@@ -1,15 +1,11 @@
-// @import '../reuseable-styling/fonts';
-// @import '../reuseable-styling/mixins';
 @import '../mixins';
 @import '../variables';
 
 .modalI {
-    // font-family: Avenir Next LT Pro;
     &__select{
         background-color: rgb(87, 165, 179);
         border: 2px solid white;
         padding: 1.1em;
-        // border: none;
         box-shadow: none;
         border-radius: 50px;
         display: flex;

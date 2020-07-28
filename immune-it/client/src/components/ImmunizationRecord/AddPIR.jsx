@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './AddPIR.scss';
 import Modal from 'react-modal';
 import add from '../../assets/Icon-add.svg';
 import axios from 'axios';
@@ -17,7 +16,6 @@ export default function AddPIR(params) {
     const options = [
         { label: "Diphtheria", value: "Diphtheria" },
         { label: "Tetanus", value: "Tetanus" },
-        // { label: "Pertussis", value: "Pertussis", disabled: true },
         { label: "Pertussis", value: "Pertussis"},
         { label: "Polio", value: "Polio" },
         { label: "Hib", value: "Hib" },
@@ -35,7 +33,6 @@ export default function AddPIR(params) {
       ];
 
     const addRecord = () => {
-        //CHANGE THIS ENDPOINT AFTER CREATING A NEW ONE
         axios
             .post('http://localhost:8080/pir', {
                 "shot_date": shot_date,

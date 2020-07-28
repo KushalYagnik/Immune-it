@@ -8,7 +8,6 @@ export default class EditRecord extends Component {
     constructor(props) {
         super(props);
 
-        //>>>>>>> Bind the state to event handler functions    
         this.updateFirstname = this.updateFirstname.bind(this);
         this.updateLastname = this.updateLastname.bind(this);
         this.updateBdate = this.updateBdate.bind(this);
@@ -30,7 +29,7 @@ export default class EditRecord extends Component {
     componentDidMount() {
         axios.get('http://localhost:8080/records/' + this.props.match.params.id, {
             headers: {
-                Authorization: 'Bearer ' + this.state.token //the token is a variable which holds the token
+                Authorization: 'Bearer ' + this.state.token
             }
         })
             .then(response => {
@@ -47,7 +46,6 @@ export default class EditRecord extends Component {
             })
     }
 
-    //>>>> Declare the functions to handle state change for those fields
     updateFirstname(e) { this.setState({ user_firstname: e.target.value }) };
     updateLastname(e) { this.setState({ user_lastname: e.target.value }) };
     updateBdate(e) { this.setState({ user_birthdate: e.target.value }) };
@@ -57,7 +55,7 @@ export default class EditRecord extends Component {
     onDelete() {
         axios.delete("http://localhost:8080/records/" + this.props.match.params.id, {
             headers: {
-                Authorization: 'Bearer ' + this.state.token //the token is a variable which holds the token
+                Authorization: 'Bearer ' + this.state.token
             }
         })
             .then((res) => {
@@ -66,7 +64,6 @@ export default class EditRecord extends Component {
             });
 
         this.props.history.push("/");
-        // this.props.history.goBack();
     }
 
     onSubmit(e) {
@@ -81,7 +78,7 @@ export default class EditRecord extends Component {
         console.log(obj);
         axios.put('http://localhost:8080/records/' + this.props.match.params.id, obj, {
             headers: {
-                Authorization: 'Bearer ' + this.state.token //the token is a variable which holds the token
+                Authorization: 'Bearer ' + this.state.token
             }
         })
             .then(res => {
@@ -90,8 +87,6 @@ export default class EditRecord extends Component {
             });
 
         this.props.history.push("/");
-        // this.props.history.goBack()
-
     }
 
     render() {
@@ -127,7 +122,6 @@ export default class EditRecord extends Component {
                             onChange={this.updateBdate}
                         />
                     </div>
-                    {/* >>>>>>> Gender options */}
                     <div className="form-group">
                         <div className="form-check form-check-inline">
                             <input
@@ -154,7 +148,6 @@ export default class EditRecord extends Component {
                             <label className="form-check-label">Female</label>
                         </div>
                     </div>
-                    {/* >>>>> Record holder options */}
                     <div className="form-group">
                         <div className="form-check form-check-inline">
                             <input
