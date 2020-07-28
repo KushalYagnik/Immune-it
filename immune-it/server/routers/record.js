@@ -4,7 +4,6 @@ const auth = require('../middleware/auth')
 
 const router = express.Router()
 
-// get a record
 router.get('/records/:id', auth, async (req, res) => {
     try
     {
@@ -19,7 +18,6 @@ router.get('/records/:id', auth, async (req, res) => {
     }
 });
 
-// delete a record
 router.delete('/records/:id', auth, function(req,res){
     RecordsInstance.findByIdAndRemove(req.params.id, (err, record) => {
         if (err) return res.status(500).send(err);
@@ -27,7 +25,6 @@ router.delete('/records/:id', auth, function(req,res){
     });
 })
 
-// update a record
 router.put('/records/:id', auth, function(req, res) {
     RecordsInstance.findOne({ _id: req.params.id, user: req.user._id }, function(err, record) {
         if (!record)
@@ -52,7 +49,6 @@ router.put('/records/:id', auth, function(req, res) {
     });
 });
 
-// create new record
 router.post('/records', auth, async (req, res) => {
     try
     {
@@ -68,7 +64,6 @@ router.post('/records', auth, async (req, res) => {
     }
 });
 
-// fetch all records
 router.get('/records', auth, async (req, res) => {
     try
     {
@@ -80,16 +75,5 @@ router.get('/records', auth, async (req, res) => {
         res.status(400).send("Error in retrieving records");
     }
 });
-
-// router.route('/view/update').post(function(req, res) {
-//     let record = new RecordsInstance(req.body);
-//     record.save()
-//         .then(record => {
-//             res.status(200).json({'record': 'immune record added successfully'});
-//         })
-//         .catch(err => {
-//             res.status(400).send('adding new record failed');
-//         });
-// });
 
 module.exports = router

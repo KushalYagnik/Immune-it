@@ -59,7 +59,6 @@ export default class EditRecord extends Component {
             }
         })
             .then((res) => {
-                console.log(res.data);
                 window.alert('Record deleted!');
             });
 
@@ -75,14 +74,12 @@ export default class EditRecord extends Component {
             user_gender: this.state.user_gender,
             user_recordfor: this.state.user_recordfor,
         };
-        console.log(obj);
         axios.put('http://localhost:8080/records/' + this.props.match.params.id, obj, {
             headers: {
                 Authorization: 'Bearer ' + this.state.token
             }
         })
             .then(res => {
-                console.log(res.data);
                 window.alert('Record updated!');
             });
 

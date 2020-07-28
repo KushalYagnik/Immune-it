@@ -35,7 +35,6 @@ export default class Signup extends Component {
 
         axios.post('http://localhost:8080/users/', obj)
             .then(res => {
-                console.log(res.data);
                 window.alert('Signup successful');
                 this.setState({ 
                     name: '',

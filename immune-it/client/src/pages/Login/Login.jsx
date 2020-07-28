@@ -32,7 +32,6 @@ export default class Login extends Component {
 
         axios.post('http://localhost:8080/users/login/', obj)
             .then(res => {
-                console.log(res.data);
                 window.alert('Login successful');
                 localStorage.setItem("token", res.data.token);
                 this.setState({ loggedIn: true });
@@ -41,7 +40,6 @@ export default class Login extends Component {
 
     render() {
         if (this.state.loggedIn) {
-            console.log("Success")
             return (
                 <Redirect to={"/home"} />
             );

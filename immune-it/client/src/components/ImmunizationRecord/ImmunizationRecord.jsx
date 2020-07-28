@@ -23,9 +23,7 @@ export default class ImmunizationRecord extends Component {
 
     constructor(props) {
         super(props);
-        // console.log()
         this.state = { records: [], record_id: props.match.params.id, token: localStorage.getItem("token") };
-        console.log(this.state.record_id)
     }
 
     componentDidMount() {

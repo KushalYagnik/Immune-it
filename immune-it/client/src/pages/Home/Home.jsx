@@ -115,7 +115,7 @@ export class Home extends Component {
                             * MMR must be given on or after the first birthday<br />
                             ** Tdap is recommended 10 years after the 4-6 year old dose<br />
                             *** Adults who are dur for a Td dose may receive 1 dose of Tdap. Once the dose of Tdap is given, adults should receive Td every 10 years<br />
-                            Refer to <i>Publicly Funded Immunization Schedules for Ontario</i> at <strong>ontario.ca/vaccines</strong> for further information.
+                            Refer to <i>Publicly Funded Immunization Schedules for Ontario</i> at <strong><a className="home__link" href="https://www.ontario.ca/page/vaccines">ontario.ca/vaccines</a></strong> for further information.
                         </p>
                     </section>
                 </div>

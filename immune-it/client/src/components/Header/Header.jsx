@@ -14,12 +14,10 @@ export class Header extends Component {
     }
 
     componentDidMount() {
-        console.log(this.state.loggedIn);
         this.setState({ loggedIn: localStorage.getItem("token") ? true : false });
     }
 
     render() {
-        console.log("Header: " + localStorage.getItem("token"))
         if (this.state.loggedIn) {
             return (
                 <div className="header">

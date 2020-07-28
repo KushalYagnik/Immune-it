@@ -21,7 +21,6 @@ export class Logout extends Component {
     }
 
     render() {
-        console.log("Logout:" + this.state.loggedIn)
         if(this.state.loggedIn) {
             return (
                 <div>

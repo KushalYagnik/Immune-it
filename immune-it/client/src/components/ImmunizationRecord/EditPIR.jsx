@@ -83,7 +83,6 @@ export default class EditPIR extends Component {
             }
         })
             .then((res) => {
-                console.log(res.data);
                 window.alert('Record deleted!');
             });
 
@@ -99,14 +98,12 @@ export default class EditPIR extends Component {
             shot_coverage: this.state.shot_coverage.map(ele => ele.value),
             shot_notes: this.state.shot_notes,
         };
-        console.log(obj);
         axios.put('http://localhost:8080/pir/' + this.props.match.params.id, obj, {
             headers: {
                 Authorization: 'Bearer ' + this.state.token
             }
         })
             .then(res => {
-                console.log(res.data);
                 window.alert('Record updated!');
             });
 

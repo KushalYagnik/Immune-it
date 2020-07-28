@@ -4,7 +4,6 @@ const auth = require('../middleware/auth')
 
 const router = express.Router()
 
-// get a record
 router.get('/pir/:id', auth, async (req, res) => {
     try
     {
@@ -19,7 +18,6 @@ router.get('/pir/:id', auth, async (req, res) => {
     }
 });
 
-// delete a pir
 router.delete('/pir/:id', auth, function(req,res){
     PIRinstance.findByIdAndRemove(req.params.id, (err, pir) => {
         if (err) return res.status(500).send(err);
@@ -27,7 +25,6 @@ router.delete('/pir/:id', auth, function(req,res){
     });
 })
 
-// update a pir
 router.put('/pir/:id', auth, function(req, res) {
     PIRinstance.findOne({ _id: req.params.id }, function(err, pir) {
         if (!pir)
@@ -52,11 +49,9 @@ router.put('/pir/:id', auth, function(req, res) {
     });
 });
 
-// create new pir
 router.post('/pir', auth, async (req, res) => {
     try
     {
-        console.log(req.body);
         const pir = new PIRinstance(req.body);
         const result = await pir.save();
         res.status(200).json(result);
@@ -68,7 +63,6 @@ router.post('/pir', auth, async (req, res) => {
     }
 });
 
-// fetch all pir
 router.get('/pirAll/:record_id', auth, async (req, res) => {
     try
     {
@@ -80,16 +74,5 @@ router.get('/pirAll/:record_id', auth, async (req, res) => {
         res.status(400).send("Error in retrieving pir");
     }
 });
-
-// router.route('/view/update').post(function(req, res) {
-//     let pir = new PIRinstance(req.body);
-//     record.save()
-//         .then(record => {
-//             res.status(200).json({'record': 'immune record added successfully'});
-//         })
-//         .catch(err => {
-//             res.status(400).send('adding new record failed');
-//         });
-// });
 
 module.exports = router

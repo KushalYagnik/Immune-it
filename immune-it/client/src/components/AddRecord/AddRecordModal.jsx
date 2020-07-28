@@ -25,7 +25,6 @@ export default function AddRecordModal() {
         "user_recordfor": user_recordfor,
       }, { headers: {Authorization: 'Bearer ' +  localStorage.getItem("token")} })
       .then(res => {
-          console.log(res.data);
           window.alert('New Record added!')
         })
       .catch(err => console.error(err))

@@ -43,7 +43,6 @@ export default function AddPIR(params) {
                 "record": params.record 
             }, { headers: { Authorization: 'Bearer ' + localStorage.getItem("token") } })
             .then(res => {
-                console.log(res.data);
                 window.alert('Personal Immunization Record added!')
             })
             .catch(err => console.error(err))
