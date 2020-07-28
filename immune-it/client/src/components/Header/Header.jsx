@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './Header.scss';
-import Logo from '../Logo/Logo';
+// import Logo from '../../assets/immuneit_logo_crp.png';
+import Logocomp from '../Logo/Logo';
 import { Link } from 'react-router-dom';
 import Logout from '../Logout/Logout';
 
@@ -23,10 +24,9 @@ export class Header extends Component {
         if (this.state.loggedIn) {
             return (
                 <div className="header">
-                    <div className="header__logo" id="logo">
-                        <Link to="/">
-                            <Logo />
-                        </Link>
+                    <div className="header__logo" id="logo-wrap">
+                        {/* <Link to="/"><img src={Logo} className="header__logo" id="logo"/></Link> */}
+                        <Link to="/"><Logocomp/></Link>
                     </div>
                     <div className="header__container">
                         <ul className="header__menu">
@@ -50,7 +50,7 @@ export class Header extends Component {
             return (
                 <div className="header">
                     <div className="header__logo" id="logo">
-                        <Link to="/"><Logo /></Link>
+                        <Link to="/"><Logocomp/></Link>
                     </div>
                     <div className="header__auth">
                         <Link to='/'>Login</Link>

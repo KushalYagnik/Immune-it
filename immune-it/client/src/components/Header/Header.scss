@@ -6,12 +6,11 @@
     padding: 0;
     box-sizing: border-box;
 }
+#logo-wrap{
+    display: flex;
+    justify-content: center;
+}
 .header{
-    // height: 6.5em;
-    // display: flex;
-    // border-bottom: 2px solid tomato;
-    // background-color: transparent;
-    // color: white;
     &__logo{
         // display: flex;
         // justify-content: center;
@@ -56,3 +55,4 @@
 }
 
 @include tablet;
+@include desktop;

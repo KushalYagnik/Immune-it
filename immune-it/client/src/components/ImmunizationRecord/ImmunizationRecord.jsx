@@ -54,7 +54,7 @@ export default class ImmunizationRecord extends Component {
                     <Header />
                     <ImmuneModal record={this.state.record_id}/>
                     <h3>Personal Immunization Record</h3>
-                    <table className="table table-striped" style={{ marginTop: 20 }} >
+                    <table className="table table-striped table-responsive" style={{ marginTop: 20 }} >
                         <thead>
                             <tr>
                                 <th>Date</th>

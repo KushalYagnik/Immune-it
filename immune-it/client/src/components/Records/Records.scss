@@ -8,6 +8,12 @@
     }
 }
 
+.records__table{
+    // overflow: hidden;
+    display: flex;
+    flex-flow: column;
+    overflow: scroll;
+}
 //Modal styles
 .modal {
     position: fixed;

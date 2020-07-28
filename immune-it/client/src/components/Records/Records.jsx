@@ -4,6 +4,7 @@ import axios from 'axios';
 import Login from '../../pages/Login/Login';
 import Header from  '../../components/Header/Header';
 import Modal from '../AddRecord/AddRecordModal';
+import './Records.scss'
 
 const Record = props => (
     < tr >
@@ -13,9 +14,9 @@ const Record = props => (
         <td>{props.record.user_gender}</td>
         <td>{props.record.user_recordfor}</td>
         <td>
-            <Link to={"/edit/" + props.record._id}>Edit</Link>
+            <Link to={"/edit/" + props.record._id}>Edit Record</Link>
             <br/><br/>
-            <Link to={"/view/" + props.record._id}>Immunization Record</Link>
+            <Link to={"/view/" + props.record._id}>Check Immunization History</Link>
         </td>
         {/* <td>
             <Link to={"/view/" + props.record._id}>Immunization Record</Link>
@@ -57,7 +58,8 @@ export default class Records extends Component {
                     <Header />
                     <Modal token/>
                     <h3>Records</h3>
-                    <table className="table table-striped" style={{ marginTop: 20 }} >
+                    <table className="table table-striped table-responsive" style={{ marginTop: 20 }} >
+                    {/* <table className="records__table" style={{ marginTop: 20 }} > */}
                         <thead>
                             <tr>
                                 <th>First Name</th>
