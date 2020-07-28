@@ -1,3 +1,6 @@
+@import '../../components/mixins';
+@import '../../components//variables';
+
 .hero {
   position: relative;
   text-align: center;
@@ -39,6 +42,12 @@
     top: 88%;
     left: 50%;
     transform: translate(-50%, -50%);
+    &:hover{
+        color: rgb(87, 165, 179);
+        background-color: white;
+        // transform: scale(1.1);
+        transition: 0.2s ease-in;
+    }
   }
 }
 .home__body{
@@ -49,5 +58,7 @@
 }
 #myVideo {
   width: 100%;
-
 }
+
+@include tablet;
+@include desktop;

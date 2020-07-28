@@ -54,11 +54,11 @@ export default class Records extends Component {
     render() {
         if(this.state.token) {
             return (
-                <div>
+                <div className="recordspage">
                     <Header />
                     <Modal token/>
                     <h3>Records</h3>
-                    <table className="table table-striped table-responsive" style={{ marginTop: 20 }} >
+                    <table className="table table-striped table-responsive w-auto p-3 h-100 d-md-inline-block " style={{ marginTop: 20 }} >
                     {/* <table className="records__table" style={{ marginTop: 20 }} > */}
                         <thead>
                             <tr>

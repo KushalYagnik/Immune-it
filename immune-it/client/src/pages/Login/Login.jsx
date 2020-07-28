@@ -52,7 +52,7 @@ export default class Login extends Component {
                 {/* <Header /> */}
                 <div className="login">
                     <div className="login__description-wrap">
-                        <h2 className="login__description">'immune-it' is an app that empowers users to track their immunization history...digitally!</h2>
+                        <h2 className="login__description"> `immune-it` is an app that empowers users to track their immunization history...digitally!</h2>
                     </div>
                     <form className="login__wrapper" onSubmit={this.onSubmit}>
                         <div className="login__greeting">

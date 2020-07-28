@@ -6,24 +6,25 @@
 .modalI {
     // font-family: Avenir Next LT Pro;
     &__select{
-        background-color: #004892;
-        padding: 1.5em;
-        border: none;
+        background-color: rgb(87, 165, 179);
+        border: 2px solid white;
+        padding: 1.1em;
+        // border: none;
         box-shadow: none;
         border-radius: 50px;
         display: flex;
         justify-content: center;
         position: fixed;
-        margin-top: 25em;
-        margin-left: 18em;
+        margin-top: 20em;
+        margin-left: 16em;
         @include tablet{
-            padding: 1.8em;
-            // margin-top: 42em;
-            // margin-left: 46em;
+            padding: 1.2em;
+            margin-top: 24em;
+            margin-left: 42em;
         }
         @include desktop{
-            padding: 2em;
-            margin-left: 77em;
+            padding: 1.5em;
+            margin-left: 62em;
         }
         &--img{
             width: 1.5em;
@@ -85,7 +86,7 @@
             font-size: 1.2em;
         }
         &--save{
-            background-color: #004892;
+            background-color: rgb(87, 165, 179);
             border: none;
             border-radius: 5px;
             color: white;
@@ -109,7 +110,7 @@
         margin-top: 25px;
         text-transform: uppercase;
         font-weight: 500;
-        color: #004892;
+        color: rgb(87, 165, 179);
         @include tablet{
             width: 120px;
             margin-bottom: 30px;

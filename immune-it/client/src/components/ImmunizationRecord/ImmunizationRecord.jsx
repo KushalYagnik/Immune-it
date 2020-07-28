@@ -4,6 +4,7 @@ import axios from 'axios';
 import Login from '../../pages/Login/Login';
 import Header from  '../../components/Header/Header';
 import ImmuneModal from '../ImmunizationRecord/AddPIR';
+import './ImmunizationRecord.scss';
 
 const Record = props => (
     < tr >
@@ -34,7 +35,7 @@ export default class ImmunizationRecord extends Component {
             }
         })
         .then(response => {
-            this.setState({ records: response.data });
+                this.setState({ records: response.data });
         })
         .catch(function (error) {
             console.log(error);
@@ -42,19 +43,23 @@ export default class ImmunizationRecord extends Component {
     }
 
     recordsList() {
-        return this.state.records.map(function (currentRecord, i) {
-            return <Record record={currentRecord} key={i} />;
-        })
+            return this.state.records.map(function (currentRecord, i) {
+                return <Record record={currentRecord} key={i} />;
+            })
+        //  else {
+        //     return (<h2>Looks like you have not recorded your Immunization history yet...Let's add some!</h2>)
+        // }
+        
     }
 
     render() {
         if(this.state.token) {
             return (
-                <div>
+                <div className="immurecordspage">
                     <Header />
                     <ImmuneModal record={this.state.record_id}/>
                     <h3>Personal Immunization Record</h3>
-                    <table className="table table-striped table-responsive" style={{ marginTop: 20 }} >
+                    <table className="table table-striped table-responsive w-auto p-3 h-100 d-md-inline-block" style={{ marginTop: 20 }} >
                         <thead>
                             <tr>
                                 <th>Date</th>

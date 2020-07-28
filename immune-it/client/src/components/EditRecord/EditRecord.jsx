@@ -98,7 +98,7 @@ export default class EditRecord extends Component {
             <div>
                 <Header />
                 <h3 align="center">Update Record</h3>
-                <form onSubmit={this.onSubmit}>
+                <form className="w-100 p-3" onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label>First Name: </label>
                         <input
