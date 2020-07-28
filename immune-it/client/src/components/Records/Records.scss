@@ -1,0 +1,10 @@
+@import "../mixins";
+@import "../variables";
+
+#family-record {
+  border: 2px solid grey;
+  border-radius: 10px;
+}
+
+@include tablet;
+@include desktop;
