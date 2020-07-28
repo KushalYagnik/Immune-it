@@ -1,37 +1,79 @@
 import React, { Component } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import './Login.scss';
 import Logo from '../../components/Logo/Logo';
-import {Link} from 'react-router-dom';
+import axios from 'axios';
 
-export class Login extends Component {
+export default class Login extends Component {
+    constructor(props) {
+        super(props);
+
+        this.updateEmail = this.updateEmail.bind(this);
+        this.updatePassword = this.updatePassword.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+
+        this.state = {
+            email: '',
+            password: '',
+            loggedIn: localStorage.getItem("token") ? true : false
+        };
+    }
+
+    updateEmail(e) { this.setState({ email: e.target.value }) };
+    updatePassword(e) { this.setState({ password: e.target.value }) };
+
+    onSubmit(e) {
+        e.preventDefault();
+
+        const obj = {
+            email: this.state.email,
+            password: this.state.password
+        };
+
+        axios.post('http://localhost:8080/users/login/', obj)
+            .then(res => {
+                window.alert('Login successful');
+                localStorage.setItem("token", res.data.token);
+                this.setState({ loggedIn: true });
+            });
+    }
+
     render() {
+        if (this.state.loggedIn) {
+            return (
+                <Redirect to={"/home"} />
+            );
+        }
         return (
-            <div className="login">
-                <form className="login__wrapper">
-                    <div className="login__greeting">
-                        <Logo />
-                        {/* <img className="login__logo" src="../../assets/Immune-it_cropped.png" alt="login__logo"/> */}
-                        <h2 className="login__title">Login</h2>
-                        <p className="login__text">Please login to access the app</p>
+            <div className="container_login">
+                {/* <Header /> */}
+                <div className="login">
+                    <div className="login__description-wrap">
+                        <h2 className="login__description"> `immune-it` is an app that empowers users to track their immunization history...digitally!</h2>
                     </div>
-                    <div className="login__inputs">
-                        <input type="email" className="login__email input" placeholder="Email"/>
-                        <input type="password" className="login__password input" placeholder="Password"/>
-                    </div>
-                    <div className="login__CTAs">
-                        <button className="login__login">Login</button>
-                        <Link to="/signup">
-                            <button className="login__signup">Sign Up</button>
-                        </Link>
-                    </div>
-                </form>
-                <div className="login__lang">
-                    <a href="#" className="login__eng">English</a>
-                    <a href="#" className="login__fra">Français</a>
+                    <form className="login__wrapper" onSubmit={this.onSubmit}>
+                        <div className="login__greeting">
+                            <div className="login__logo"><Logo /></div>
+                            <h2 className="login__title">Login</h2>
+                            <p className="login__text">Please login to access the app</p>
+                        </div>
+                        <div className="login__inputs">
+                            <input type="email" className="login__email input" placeholder="Email" value={this.state.email} onChange={this.updateEmail} />
+                            <br /><input type="password" className="login__password input" placeholder="Password" value={this.state.password} onChange={this.updatePassword} />
+                        </div>
+                        <div className="login__CTAs">
+                            <button type="submit" className="login__login">Login</button><br />
+                            <Link to="/signup">
+                                <button className="login__signup">Sign Up</button>
+                            </Link>
+                        </div>
+                        <div className="login__lang">
+                            <button className="login__eng langInput">English</button>
+                            <button className="login__fra langInput">Français</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         )
     }
 }
-
-export default Login
