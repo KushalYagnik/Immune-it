@@ -1,0 +1,13 @@
+@import '../mixins';
+@import '../variables';
+
+.logout__btn {
+  background-color: white;
+  color: rgb(87, 165, 179);;
+  border: none;
+  padding: 10px 1em;
+  border-radius: 15px;
+}
+
+@include tablet;
+@include desktop;
