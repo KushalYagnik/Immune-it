@@ -7,7 +7,9 @@ const pirRouter = require("./routers/immurecords");
 const recordRouter = require("./routers/record");
 const userRouter = require("./routers/user")
 const PORT = process.env.PORT || 8080;
+//deployment variable
 const secret = process.env.JWT_KEY || "123abcxyasdfjlksflkasfiadsfj"
+////
 //deployment import
 const path = require("path")
 ////

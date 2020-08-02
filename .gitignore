@@ -13,6 +13,12 @@
 
 # misc
 .DS_Store
+#part of deployment code
+.env
+*.orig
+.idea/
+.vscode/
+##
 .env.local
 .env.development.local
 .env.test.local
