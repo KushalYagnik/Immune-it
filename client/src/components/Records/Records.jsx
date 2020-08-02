@@ -26,10 +26,13 @@ export default class Records extends Component {
     constructor(props) {
         super(props);
         this.state = { records: [], token: localStorage.getItem("token") };
+        this.apiURI = process.env.API_URI || 'http://localhost:8080'
+
     }
 
     componentDidMount() {
-        axios.get('http://localhost:8080/records/', {
+        // axios.get(`${this.apiURI}/records/`, {
+        axios.get(`/records/`, {
             headers: {
                 Authorization: 'Bearer ' + this.state.token
             }

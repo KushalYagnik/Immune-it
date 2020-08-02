@@ -12,6 +12,8 @@ export default class Signup extends Component {
         this.updateEmail = this.updateEmail.bind(this);
         this.updatePassword = this.updatePassword.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+        this.apiURI = process.env.API_URI || 'http://localhost:8080'
+
 
         this.state = {
             name: '',
@@ -33,7 +35,8 @@ export default class Signup extends Component {
             password: this.state.password
         };
 
-        axios.post('http://localhost:8080/users/', obj)
+        // axios.post(`${this.apiURI}/users/`, obj)
+        axios.post(`/users/`, obj)
             .then(res => {
                 window.alert('Signup successful');
                 this.setState({ 

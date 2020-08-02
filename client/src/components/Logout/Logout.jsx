@@ -8,6 +8,7 @@ export class Logout extends Component {
         super(props);
         
         this.logout = this.logout.bind(this);
+        this.apiURI = process.env.API_URI || 'http://localhost:8080'
         this.state = {
             loggedIn: localStorage.getItem("token") ? true : false
         };
@@ -17,7 +18,7 @@ export class Logout extends Component {
         const token = localStorage.getItem("token");
         localStorage.clear();
         this.setState({loggedIn: false});
-        await axios.post('http://localhost:8080/users/me/logout', null, { headers: { Authorization: 'Bearer ' + token } });
+        await axios.post(`${this.apiURI}/users/me/logout`, null, { headers: { Authorization: 'Bearer ' + token } });
     }
 
     render() {

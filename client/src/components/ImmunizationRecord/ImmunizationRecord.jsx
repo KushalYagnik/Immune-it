@@ -24,10 +24,13 @@ export default class ImmunizationRecord extends Component {
     constructor(props) {
         super(props);
         this.state = { records: [], record_id: props.match.params.id, token: localStorage.getItem("token") };
+        this.apiURI = process.env.API_URI || 'http://localhost:8080'
+
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:8080/pirAll/${this.state.record_id}`, {
+        // axios.get(`${this.apiURI}/pirAll/${this.state.record_id}`, {
+        axios.get(`/pirAll/${this.state.record_id}`, {
             headers: {
                 Authorization: 'Bearer ' + this.state.token
             }

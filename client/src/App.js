@@ -10,6 +10,10 @@ import ImmunizationRecord from './components/ImmunizationRecord/ImmunizationReco
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/Home/Home';
 import EditPIR from './components/ImmunizationRecord/EditPIR';
+require("dotenv").config();
+const appURI = process.env.API_URI;
+console.log(appURI);
+
 
 function App() {
   return (

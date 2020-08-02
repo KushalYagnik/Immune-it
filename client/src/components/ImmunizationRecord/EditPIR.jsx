@@ -16,6 +16,8 @@ export default class EditPIR extends Component {
 
         this.onSubmit = this.onSubmit.bind(this);
         this.onDelete = this.onDelete.bind(this);
+        this.apiURI = process.env.API_URI || 'http://localhost:8080';
+
 
         this.state = {
             shot_date: "",
@@ -49,7 +51,8 @@ export default class EditPIR extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:8080/pir/' + this.props.match.params.id, {
+        // axios.get(`${this.apiURI}/pir/` + this.props.match.params.id, {
+        axios.get(`/pir/` + this.props.match.params.id, {
             headers: {
                 Authorization: 'Bearer ' + this.state.token
             }
@@ -77,7 +80,8 @@ export default class EditPIR extends Component {
     updateShotnotes(e) { this.setState({ shot_notes: e.target.value }) };
 
     onDelete() {
-        axios.delete("http://localhost:8080/pir/" + this.props.match.params.id, {
+        // axios.delete(`${this.apiURI}/pir/` + this.props.match.params.id, {
+        axios.delete(`/pir/` + this.props.match.params.id, {
             headers: {
                 Authorization: 'Bearer ' + this.state.token
             }
@@ -98,7 +102,8 @@ export default class EditPIR extends Component {
             shot_coverage: this.state.shot_coverage.map(ele => ele.value),
             shot_notes: this.state.shot_notes,
         };
-        axios.put('http://localhost:8080/pir/' + this.props.match.params.id, obj, {
+        // axios.put(`${this.apiURI}/pir/` + this.props.match.params.id, obj, {
+        axios.put(`/pir/` + this.props.match.params.id, obj, {
             headers: {
                 Authorization: 'Bearer ' + this.state.token
             }

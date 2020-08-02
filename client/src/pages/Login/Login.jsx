@@ -11,6 +11,8 @@ export default class Login extends Component {
         this.updateEmail = this.updateEmail.bind(this);
         this.updatePassword = this.updatePassword.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+        this.apiURI = process.env.API_URI || 'http://localhost:8080'
+
 
         this.state = {
             email: '',
@@ -30,9 +32,10 @@ export default class Login extends Component {
             password: this.state.password
         };
 
-        axios.post('http://localhost:8080/users/login/', obj)
+        // axios.post(`${this.apiURI}/users/login/`, obj)
+        axios.post(`/users/login/`, obj)
             .then(res => {
-                window.alert('Login successful');
+                // window.alert('Login successful');
                 localStorage.setItem("token", res.data.token);
                 this.setState({ loggedIn: true });
             });

@@ -2,7 +2,7 @@
   "name": "immune-it",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:8080",
+  "proxy": "https://immune-it.herokuapp.com:5000",
   "dependencies": {
     "@auth0/auth0-spa-js": "^1.11.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
@@ -13,6 +13,7 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
+    "dotenv": "^8.2.0",
     "font-awesome": "^4.7.0",
     "moment": "^2.27.0",
     "moment-timezone": "^0.5.31",

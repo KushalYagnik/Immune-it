@@ -31,10 +31,13 @@ export default function AddPIR(params) {
         { label: "Influenza", value: "Influenza" },
         { label: "Hepatitis A", value: "Hepatitis A" },
       ];
+    const apiURI = process.env.API_URI || 'http://localhost:8080'
+
 
     const addRecord = () => {
         axios
-            .post('http://localhost:8080/pir', {
+            // .post(`${apiURI}/pir`, {
+            .post(`/pir`, {
                 "shot_date": shot_date,
                 "shot_brand": shot_brand,
                 "shot_provider": shot_provider,

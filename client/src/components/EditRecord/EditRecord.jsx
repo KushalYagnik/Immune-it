@@ -15,6 +15,8 @@ export default class EditRecord extends Component {
         this.updateRecordfor = this.updateRecordfor.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.onDelete = this.onDelete.bind(this);
+        this.apiURI = process.env.API_URI || 'http://localhost:8080'
+
 
         this.state = {
             user_firstname: "",
@@ -27,7 +29,8 @@ export default class EditRecord extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:8080/records/' + this.props.match.params.id, {
+        // axios.get(`${this.apiURI}/records/` + this.props.match.params.id, {
+        axios.get(`/records/` + this.props.match.params.id, {
             headers: {
                 Authorization: 'Bearer ' + this.state.token
             }
@@ -53,7 +56,8 @@ export default class EditRecord extends Component {
     updateRecordfor(e) { this.setState({ user_recordfor: e.target.value }) };
 
     onDelete() {
-        axios.delete("http://localhost:8080/records/" + this.props.match.params.id, {
+        // axios.delete(`${this.apiURI}/records/` + this.props.match.params.id, {
+        axios.delete(`/records/` + this.props.match.params.id, {
             headers: {
                 Authorization: 'Bearer ' + this.state.token
             }
@@ -74,7 +78,8 @@ export default class EditRecord extends Component {
             user_gender: this.state.user_gender,
             user_recordfor: this.state.user_recordfor,
         };
-        axios.put('http://localhost:8080/records/' + this.props.match.params.id, obj, {
+        // axios.put(`${this.apiURI}/records/` + this.props.match.params.id, obj, {
+        axios.put(`/records/` + this.props.match.params.id, obj, {
             headers: {
                 Authorization: 'Bearer ' + this.state.token
             }
