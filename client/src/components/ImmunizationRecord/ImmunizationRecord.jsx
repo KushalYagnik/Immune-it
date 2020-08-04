@@ -24,7 +24,7 @@ export default class ImmunizationRecord extends Component {
     constructor(props) {
         super(props);
         this.state = { records: [], record_id: props.match.params.id, token: localStorage.getItem("token") };
-        this.apiURI = process.env.API_URI || 'http://localhost:8080'
+        this.apiURI = process.env.REACT_APP_API_URI || 'http://localhost:8080'
 
     }
 

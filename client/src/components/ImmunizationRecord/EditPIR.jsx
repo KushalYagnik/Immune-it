@@ -16,7 +16,7 @@ export default class EditPIR extends Component {
 
         this.onSubmit = this.onSubmit.bind(this);
         this.onDelete = this.onDelete.bind(this);
-        this.apiURI = process.env.API_URI || 'http://localhost:8080';
+        this.apiURI = process.env.REACT_APP_API_URI || 'http://localhost:8080';
 
 
         this.state = {

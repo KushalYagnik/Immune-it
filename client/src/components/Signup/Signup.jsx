@@ -12,7 +12,7 @@ export default class Signup extends Component {
         this.updateEmail = this.updateEmail.bind(this);
         this.updatePassword = this.updatePassword.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
-        this.apiURI = process.env.API_URI || 'http://localhost:8080'
+        this.apiURI = process.env.REACT_APP_API_URI || 'http://localhost:8080'
 
 
         this.state = {

@@ -8,7 +8,7 @@ export class Logout extends Component {
         super(props);
         
         this.logout = this.logout.bind(this);
-        this.apiURI = process.env.API_URI || 'http://localhost:8080'
+        this.apiURI = process.env.REACT_APP_API_URI || 'http://localhost:8080'
         this.state = {
             loggedIn: localStorage.getItem("token") ? true : false
         };

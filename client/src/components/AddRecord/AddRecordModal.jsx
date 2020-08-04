@@ -14,7 +14,7 @@ export default function AddRecordModal() {
   const [user_birthdate, setBdate] = useState("")
   const [user_gender, setGender] = useState("Male")
   const [user_recordfor, setRecordfor] = useState("Self")
-  const apiURI = process.env.API_URI || 'http://localhost:8080'
+  const apiURI = process.env.REACT_APP_REACT_APP_API_URI || 'http://localhost:8080'
   const addRecord = () => {
     axios
       .post(`${apiURI}/records`, {

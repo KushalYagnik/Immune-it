@@ -31,7 +31,7 @@ export default function AddPIR(params) {
         { label: "Influenza", value: "Influenza" },
         { label: "Hepatitis A", value: "Hepatitis A" },
       ];
-    const apiURI = process.env.API_URI || 'http://localhost:8080'
+    const apiURI = process.env.REACT_APP_API_URI || 'http://localhost:8080'
 
 
     const addRecord = () => {
