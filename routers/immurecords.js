@@ -5,6 +5,7 @@ const auth = require('../middleware/auth')
 const router = express.Router()
 
 router.get('/pir/:id', auth, async (req, res) => {
+// router.get('api/pir/:id', auth, async (req, res) => {
     try
     {
         const pir = await PIRinstance.findOne({ _id: req.params.id });
@@ -19,6 +20,7 @@ router.get('/pir/:id', auth, async (req, res) => {
 });
 
 router.delete('/pir/:id', auth, function(req,res){
+// router.delete('api/pir/:id', auth, function(req,res){
     PIRinstance.findByIdAndRemove(req.params.id, (err, pir) => {
         if (err) return res.status(500).send(err);
         return res.status(204);
@@ -26,6 +28,7 @@ router.delete('/pir/:id', auth, function(req,res){
 })
 
 router.put('/pir/:id', auth, function(req, res) {
+// router.put('api/pir/:id', auth, function(req, res) {
     PIRinstance.findOne({ _id: req.params.id }, function(err, pir) {
         if (!pir)
         {
@@ -50,6 +53,7 @@ router.put('/pir/:id', auth, function(req, res) {
 });
 
 router.post('/pir', auth, async (req, res) => {
+// router.post('api/pir', auth, async (req, res) => {
     try
     {
         const pir = new PIRinstance(req.body);
@@ -64,6 +68,7 @@ router.post('/pir', auth, async (req, res) => {
 });
 
 router.get('/pirAll/:record_id', auth, async (req, res) => {
+// router.get('api/pirAll/:record_id', auth, async (req, res) => {
     try
     {
         pir = await PIRinstance.find({record: req.params.record_id});

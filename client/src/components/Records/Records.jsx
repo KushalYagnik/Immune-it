@@ -31,8 +31,9 @@ export default class Records extends Component {
     }
 
     componentDidMount() {
-        // axios.get(`${this.apiURI}/records/`, {
-        axios.get(`/records/`, {
+        axios.get(`${this.apiURI}/records/`, {
+        // axios.get(`/records/`, {
+        // axios.get(`api/records/`, {
             headers: {
                 Authorization: 'Bearer ' + this.state.token
             }

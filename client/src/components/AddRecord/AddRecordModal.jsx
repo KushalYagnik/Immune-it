@@ -17,8 +17,9 @@ export default function AddRecordModal() {
   const apiURI = process.env.API_URI || 'http://localhost:8080'
   const addRecord = () => {
     axios
-      // .post(`${apiURI}/records`, {
-      .post(`/records`, {
+      .post(`${apiURI}/records`, {
+      // .post(`/records`, {
+      // .post(`api/records`, {
         "user_firstname": user_firstname,
         "user_lastname": user_lastname,
         "user_birthdate": user_birthdate,

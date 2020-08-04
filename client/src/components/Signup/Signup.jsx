@@ -35,8 +35,9 @@ export default class Signup extends Component {
             password: this.state.password
         };
 
-        // axios.post(`${this.apiURI}/users/`, obj)
-        axios.post(`/users/`, obj)
+        axios.post(`${this.apiURI}/users/`, obj)
+        // axios.post(`/users/`, obj)
+        // axios.post(`api/users/`, obj)
             .then(res => {
                 window.alert('Signup successful');
                 this.setState({ 

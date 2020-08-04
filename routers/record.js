@@ -5,6 +5,7 @@ const auth = require('../middleware/auth')
 const router = express.Router()
 
 router.get('/records/:id', auth, async (req, res) => {
+// router.get('api/records/:id', auth, async (req, res) => {
     try
     {
         const record = await RecordsInstance.findOne({ _id: req.params.id });
@@ -19,6 +20,7 @@ router.get('/records/:id', auth, async (req, res) => {
 });
 
 router.delete('/records/:id', auth, function(req,res){
+// router.delete('api/records/:id', auth, function(req,res){
     RecordsInstance.findByIdAndRemove(req.params.id, (err, record) => {
         if (err) return res.status(500).send(err);
         return res.status(204);
@@ -26,6 +28,7 @@ router.delete('/records/:id', auth, function(req,res){
 })
 
 router.put('/records/:id', auth, function(req, res) {
+// router.put('api/records/:id', auth, function(req, res) {
     RecordsInstance.findOne({ _id: req.params.id, user: req.user._id }, function(err, record) {
         if (!record)
         {
@@ -50,6 +53,7 @@ router.put('/records/:id', auth, function(req, res) {
 });
 
 router.post('/records', auth, async (req, res) => {
+// router.post('api/records', auth, async (req, res) => {
     try
     {
         req.body.user = req.user._id;
@@ -65,6 +69,7 @@ router.post('/records', auth, async (req, res) => {
 });
 
 router.get('/records', auth, async (req, res) => {
+// router.get('api/records', auth, async (req, res) => {
     try
     {
         records = await RecordsInstance.find({user: req.user._id});

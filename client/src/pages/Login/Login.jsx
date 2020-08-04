@@ -32,8 +32,9 @@ export default class Login extends Component {
             password: this.state.password
         };
 
-        // axios.post(`${this.apiURI}/users/login/`, obj)
-        axios.post(`/users/login/`, obj)
+        axios.post(`${this.apiURI}/users/login/`, obj)
+        // axios.post(`/users/login/`, obj)
+        // axios.post(`api/users/login/`, obj)
             .then(res => {
                 // window.alert('Login successful');
                 localStorage.setItem("token", res.data.token);
