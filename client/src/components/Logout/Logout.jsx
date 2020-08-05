@@ -19,7 +19,6 @@ export class Logout extends Component {
         localStorage.clear();
         this.setState({loggedIn: false});
         await axios.post(`${this.apiURI}/users/me/logout`, null, { headers: { Authorization: 'Bearer ' + token } });
-        // await axios.post(`api/users/me/logout`, null, { headers: { Authorization: 'Bearer ' + token } });
     }
 
     render() {

@@ -33,10 +33,8 @@ export default class Login extends Component {
         };
 
         axios.post(`${this.apiURI}/users/login/`, obj)
-        // axios.post(`/users/login/`, obj)
-        // axios.post(`api/users/login/`, obj)
             .then(res => {
-                // window.alert('Login successful');
+                window.alert('Login successful');
                 localStorage.setItem("token", res.data.token);
                 this.setState({ loggedIn: true });
             });
@@ -50,7 +48,6 @@ export default class Login extends Component {
         }
         return (
             <div className="container_login">
-                {/* <Header /> */}
                 <div className="login">
                     <div className="login__description-wrap">
                         <h2 className="login__description"> `immune-it` is an app that empowers users to track their immunization history...digitally!</h2>

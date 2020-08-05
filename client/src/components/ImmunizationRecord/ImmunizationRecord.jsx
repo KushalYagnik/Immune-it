@@ -30,8 +30,6 @@ export default class ImmunizationRecord extends Component {
 
     componentDidMount() {
         axios.get(`${this.apiURI}/pirAll/${this.state.record_id}`, {
-        // axios.get(`/pirAll/${this.state.record_id}`, {
-        // axios.get(`api/pirAll/${this.state.record_id}`, {
             headers: {
                 Authorization: 'Bearer ' + this.state.token
             }
