@@ -36,7 +36,7 @@ export default function AddPIR(params) {
 
     const addRecord = () => {
         axios
-            .post(`${apiURI}/pir`, {
+            .post(`${this.apiURI}/pir`, {
                 "shot_date": shot_date,
                 "shot_brand": shot_brand,
                 "shot_provider": shot_provider,
