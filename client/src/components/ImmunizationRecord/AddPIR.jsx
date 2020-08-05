@@ -31,12 +31,12 @@ export default function AddPIR(params) {
         { label: "Influenza", value: "Influenza" },
         { label: "Hepatitis A", value: "Hepatitis A" },
       ];
-    const apiURI = process.env.REACT_APP_API_URI || 'http://localhost:8080'
+    const [apiURI] = useState(process.env.REACT_APP_API_URI || 'http://localhost:8080')
 
 
     const addRecord = () => {
         axios
-            .post(`${this.apiURI}/pir`, {
+            .post(`${apiURI}/pir`, {
                 "shot_date": shot_date,
                 "shot_brand": shot_brand,
                 "shot_provider": shot_provider,
