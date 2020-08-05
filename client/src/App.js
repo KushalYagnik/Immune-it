@@ -11,9 +11,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/Home/Home';
 import EditPIR from './components/ImmunizationRecord/EditPIR';
 require("dotenv").config();
-const apiURI = process.env.REACT_APP_API_URI;
-console.log(apiURI);
-
 
 function App() {
   return (

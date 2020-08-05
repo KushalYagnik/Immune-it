@@ -2,6 +2,7 @@
   "name": "immune-it",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8080",
   "dependencies": {
     "@auth0/auth0-spa-js": "^1.11.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.30",

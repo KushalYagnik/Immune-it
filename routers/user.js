@@ -5,7 +5,6 @@ const auth = require('../middleware/auth')
 const router = express.Router()
 
 router.post('/users', async (req, res) => {
-// router.post('api/users', async (req, res) => {
     try {
         const user = new User(req.body)
         await user.save()
