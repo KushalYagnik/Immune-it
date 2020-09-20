@@ -11,12 +11,12 @@ const userRouter = require("./routers/user");
 const { Mongoose } = require('mongoose');
 const PORT = process.env.PORT || 8080;
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://testUser1:testUser1@myfirstmongocluster.jnsl9.mongodb.net/testdb1?retryWrites=true&w=majority", {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify: true,
-    useUnifiedTopology: true
-})
+// mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://testUser1:testUser1@myfirstmongocluster.jnsl9.mongodb.net/testdb1?retryWrites=true&w=majority", {
+//     useNewUrlParser: true,
+//     useCreateIndex: true,
+//     useFindAndModify: true,
+//     useUnifiedTopology: true
+// })
 
 app.use(cors());
 app.use(bodyParser.json());
